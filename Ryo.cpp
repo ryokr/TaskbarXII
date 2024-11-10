@@ -1,7 +1,7 @@
 // ==WindhawkMod==
 // @id              taskbar-11
 // @name            TaskbarXI
-// @description     Manipulate Window 11 Taskbar
+// @description     ✦ Taskbar 11 Alteration
 // @version         4.0.0
 // @author          ryokr
 // @github          https://github.com/ryokr
@@ -9,20 +9,6 @@
 // @architecture    x86-64
 // @compilerOptions -lcomctl32 -lole32 -loleaut32 -lruntimeobject -Wl,--export-all-symbols
 // ==/WindhawkMod==
-
-// ==WindhawkModReadme==
-/*
-# TaskbarXI
-✦ Manipulate Window 11 Taskbar
-*/
-// ==/WindhawkModReadme==
-
-// ==WindhawkModSettings==
-/*
-- theme: ""
-  $name: ✦ Meow
-*/
-// ==/WindhawkModSettings==
 
 // -------------------------------------------------------------------------------------------------------------
 // clang-format off
@@ -93,43 +79,36 @@ namespace wuxh = wux::Hosting;
 #ifndef __IVisualTreeServiceCallback_FWD_DEFINED__
 #define __IVisualTreeServiceCallback_FWD_DEFINED__
 typedef interface IVisualTreeServiceCallback IVisualTreeServiceCallback;
-
 #endif 	/* __IVisualTreeServiceCallback_FWD_DEFINED__ */
 
 #ifndef __IVisualTreeServiceCallback2_FWD_DEFINED__
 #define __IVisualTreeServiceCallback2_FWD_DEFINED__
 typedef interface IVisualTreeServiceCallback2 IVisualTreeServiceCallback2;
-
 #endif 	/* __IVisualTreeServiceCallback2_FWD_DEFINED__ */
 
 #ifndef __IVisualTreeService_FWD_DEFINED__
 #define __IVisualTreeService_FWD_DEFINED__
 typedef interface IVisualTreeService IVisualTreeService;
-
 #endif 	/* __IVisualTreeService_FWD_DEFINED__ */
 
 #ifndef __IXamlDiagnostics_FWD_DEFINED__
 #define __IXamlDiagnostics_FWD_DEFINED__
 typedef interface IXamlDiagnostics IXamlDiagnostics;
-
 #endif 	/* __IXamlDiagnostics_FWD_DEFINED__ */
 
 #ifndef __IBitmapData_FWD_DEFINED__
 #define __IBitmapData_FWD_DEFINED__
 typedef interface IBitmapData IBitmapData;
-
 #endif 	/* __IBitmapData_FWD_DEFINED__ */
 
 #ifndef __IVisualTreeService2_FWD_DEFINED__
 #define __IVisualTreeService2_FWD_DEFINED__
 typedef interface IVisualTreeService2 IVisualTreeService2;
-
 #endif 	/* __IVisualTreeService2_FWD_DEFINED__ */
 
 #ifndef __IVisualTreeService3_FWD_DEFINED__
 #define __IVisualTreeService3_FWD_DEFINED__
 typedef interface IVisualTreeService3 IVisualTreeService3;
-
 #endif 	/* __IVisualTreeService3_FWD_DEFINED__ */
 
 /* header files for imported files */
@@ -140,8 +119,7 @@ typedef interface IVisualTreeService3 IVisualTreeService3;
 
 #ifdef __cplusplus
 extern "C"{
-#endif 
-
+#endif
 
 /* interface __MIDL_itf_xamlom_0000_0000 */
 /* [local] */ 
@@ -160,27 +138,27 @@ _Check_return_ HRESULT InitializeXamlDiagnostic(_In_ LPCWSTR endPointName, _In_ 
 _Check_return_ HRESULT InitializeXamlDiagnosticsEx(_In_ LPCWSTR endPointName, _In_ DWORD pid, _In_ LPCWSTR wszDllXamlDiagnostics, _In_ LPCWSTR wszTAPDllName, _In_ CLSID tapClsid, _In_ LPCWSTR wszInitializationData);
 typedef MIDL_uhyper InstanceHandle;
 
-typedef enum VisualMutationType  {
+typedef enum VisualMutationType {
     Add	= 0,
     Remove	= ( Add + 1 ) 
 } 	VisualMutationType;
 
 typedef enum BaseValueSource {
-    BaseValueSourceUnknown	= 0,
-    BaseValueSourceDefault	= ( BaseValueSourceUnknown + 1 ) ,
+    BaseValueSourceUnknown = 0,
+    BaseValueSourceDefault = ( BaseValueSourceUnknown + 1 ) ,
     BaseValueSourceBuiltInStyle	= ( BaseValueSourceDefault + 1 ) ,
-    BaseValueSourceStyle	= ( BaseValueSourceBuiltInStyle + 1 ) ,
-    BaseValueSourceLocal	= ( BaseValueSourceStyle + 1 ) ,
-    Inherited	= ( BaseValueSourceLocal + 1 ) ,
+    BaseValueSourceStyle = ( BaseValueSourceBuiltInStyle + 1 ) ,
+    BaseValueSourceLocal = ( BaseValueSourceStyle + 1 ) ,
+    Inherited = ( BaseValueSourceLocal + 1 ) ,
     DefaultStyleTrigger	= ( Inherited + 1 ) ,
     TemplateTrigger	= ( DefaultStyleTrigger + 1 ) ,
-    StyleTrigger	= ( TemplateTrigger + 1 ) ,
-    ImplicitStyleReference	= ( StyleTrigger + 1 ) ,
-    ParentTemplate	= ( ImplicitStyleReference + 1 ) ,
-    ParentTemplateTrigger	= ( ParentTemplate + 1 ) ,
-    Animation	= ( ParentTemplateTrigger + 1 ) ,
-    Coercion	= ( Animation + 1 ) ,
-    BaseValueSourceVisualState	= ( Coercion + 1 ) 
+    StyleTrigger = ( TemplateTrigger + 1 ) ,
+    ImplicitStyleReference = ( StyleTrigger + 1 ) ,
+    ParentTemplate = ( ImplicitStyleReference + 1 ) ,
+    ParentTemplateTrigger = ( ParentTemplate + 1 ) ,
+    Animation = ( ParentTemplateTrigger + 1 ) ,
+    Coercion = ( Animation + 1 ) ,
+    BaseValueSourceVisualState = ( Coercion + 1 ) 
 } 	BaseValueSource;
 
 typedef struct SourceInfo {
@@ -271,7 +249,7 @@ typedef enum VisualElementState {
     ErrorResolved	= 0,
     ErrorResourceNotFound	= ( ErrorResolved + 1 ) ,
     ErrorInvalidResource	= ( ErrorResourceNotFound + 1 ) 
-} VisualElementState;
+}   VisualElementState;
 
 extern RPC_IF_HANDLE __MIDL_itf_xamlom_0000_0000_v0_0_c_ifspec;
 extern RPC_IF_HANDLE __MIDL_itf_xamlom_0000_0000_v0_0_s_ifspec;
@@ -301,7 +279,6 @@ EXTERN_C const IID IID_IVisualTreeServiceCallback;
 #else 	/* C style interface */
 #error Only C++ style interface is supported
 #endif 	/* C style interface */
-
 #endif 	/* __IVisualTreeServiceCallback_INTERFACE_DEFINED__ */
 
 #ifndef __IVisualTreeServiceCallback2_INTERFACE_DEFINED__
@@ -328,7 +305,6 @@ EXTERN_C const IID IID_IVisualTreeServiceCallback2;
 #else 	/* C style interface */
 #error Only C++ style interface is supported
 #endif 	/* C style interface */
-
 #endif 	/* __IVisualTreeServiceCallback2_INTERFACE_DEFINED__ */
 
 #ifndef __IVisualTreeService_INTERFACE_DEFINED__
@@ -404,7 +380,6 @@ EXTERN_C const IID IID_IVisualTreeService;
 #else 	/* C style interface */
 #error Only C++ style interface is supported
 #endif 	/* C style interface */
-
 #endif 	/* __IVisualTreeService_INTERFACE_DEFINED__ */
 
 #ifndef __IXamlDiagnostics_INTERFACE_DEFINED__
@@ -456,7 +431,6 @@ EXTERN_C const IID IID_IXamlDiagnostics;
 #else 	/* C style interface */
 #error Only C++ style interface is supported
 #endif 	/* C style interface */
-
 #endif 	/* __IXamlDiagnostics_INTERFACE_DEFINED__ */
 
 #ifndef __IBitmapData_INTERFACE_DEFINED__
@@ -493,7 +467,6 @@ EXTERN_C const IID IID_IBitmapData;
 #else 	/* C style interface */
 #error Only C++ style interface is supported
 #endif 	/* C style interface */
-
 #endif 	/* __IBitmapData_INTERFACE_DEFINED__ */
 
 #ifndef __IVisualTreeService2_INTERFACE_DEFINED__
@@ -538,7 +511,6 @@ EXTERN_C const IID IID_IVisualTreeService2;
 #else 	/* C style interface */
 #error Only C++ style interface is supported
 #endif 	/* C style interface */
-
 #endif 	/* __IVisualTreeService2_INTERFACE_DEFINED__ */
 
 #ifndef __IVisualTreeService3_INTERFACE_DEFINED__
@@ -550,7 +522,6 @@ EXTERN_C const IID IID_IVisualTreeService2;
 EXTERN_C const IID IID_IVisualTreeService3;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
     #ifdef __CRT_UUID_DECL
     __CRT_UUID_DECL(IVisualTreeService3, 0x0E79C6E0, 0x85A0, 0x4BE8, 0xB4, 0x1A, 0x65, 0x5C, 0xF1, 0xFD, 0x19, 0xBD);
     #endif
@@ -583,7 +554,6 @@ EXTERN_C const IID IID_IVisualTreeService3;
 #else 	/* C style interface */
 #error Only C++ style interface is supported
 #endif 	/* C style interface */
-
 #endif 	/* __IVisualTreeService3_INTERFACE_DEFINED__ */
 
 /* interface __MIDL_itf_xamlom_0000_0007 */
@@ -625,7 +595,6 @@ void            __RPC_USER  LPSAFEARRAY_UserFree64(     __RPC__in unsigned long 
 #pragma endregion  // xamlOM_h
 // -------------------------------------------------------------------------------------------------------------
 #pragma region windows_ui_xaml_hosting_desktopwindowxamlsource_h
-
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
  /* File created by MIDL compiler version 8.01.0622 */
@@ -665,13 +634,11 @@ void            __RPC_USER  LPSAFEARRAY_UserFree64(     __RPC__in unsigned long 
 #ifndef __IDesktopWindowXamlSourceNative_FWD_DEFINED__
 #define __IDesktopWindowXamlSourceNative_FWD_DEFINED__
 typedef interface IDesktopWindowXamlSourceNative IDesktopWindowXamlSourceNative;
-
 #endif 	/* __IDesktopWindowXamlSourceNative_FWD_DEFINED__ */
 
 #ifndef __IDesktopWindowXamlSourceNative2_FWD_DEFINED__
 #define __IDesktopWindowXamlSourceNative2_FWD_DEFINED__
 typedef interface IDesktopWindowXamlSourceNative2 IDesktopWindowXamlSourceNative2;
-
 #endif 	/* __IDesktopWindowXamlSourceNative2_FWD_DEFINED__ */
 
 /* header files for imported files */
@@ -743,20 +710,17 @@ EXTERN_C const IID IID_IDesktopWindowXamlSourceNative2;
     #endif
 
     MIDL_INTERFACE("e3dcd8c7-3057-4692-99c3-7b7720afda31")
-    IDesktopWindowXamlSourceNative2 : public IDesktopWindowXamlSourceNative
-    {
-    public:
-        virtual HRESULT STDMETHODCALLTYPE PreTranslateMessage( 
-            /* [annotation][in] */ 
-            _In_  const MSG *message,
-            /* [retval][out] */ BOOL *result) = 0;
-        
+    IDesktopWindowXamlSourceNative2 : public IDesktopWindowXamlSourceNative {
+        public:
+            virtual HRESULT STDMETHODCALLTYPE PreTranslateMessage( 
+                /* [annotation][in] */ 
+                _In_  const MSG *message,
+                /* [retval][out] */ BOOL *result) = 0;
     };
     
 #else 	/* C style interface */
 #error Only C++ style interface is supported
 #endif 	/* C style interface */
-
 #endif 	/* __IDesktopWindowXamlSourceNative2_INTERFACE_DEFINED__ */
 
 /* interface __MIDL_itf_windows2Eui2Examl2Ehosting2Edesktopwindowxamlsource_0000_0002 */
@@ -927,8 +891,7 @@ class VisualTreeWatcher : public winrt::implements<VisualTreeWatcher, IVisualTre
         HRESULT STDMETHODCALLTYPE OnElementStateChanged(InstanceHandle element, VisualElementState elementState, LPCWSTR context) noexcept override;
 
         template<typename T>
-        T FromHandle(InstanceHandle handle)
-        {
+        T FromHandle(InstanceHandle handle) {
             wf::IInspectable obj;
             winrt::check_hresult(m_XamlDiagnostics->GetIInspectableFromHandle(handle, reinterpret_cast<::IInspectable**>(winrt::put_abi(obj))));
 
@@ -1073,8 +1036,7 @@ _Use_decl_annotations_ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LP
         *ppv = nullptr;
         return winrt::make<SimpleFactory<WindhawkTAP>>().as(riid, ppv);
     } else return CLASS_E_CLASSNOTAVAILABLE;
-}
-catch (...) {
+} catch (...) {
     return winrt::to_hresult();
 }
 
@@ -1385,17 +1347,17 @@ const PropertyValues& GetResolvedPropertyValues( const std::wstring_view type, P
     return std::get<PropertyValues>(*propertyValuesMaybeUnresolved);
 }
 
-// VisualStateGroup GetVisualStateGroup(FrameworkElement element, std::wstring_view visualStateGroupName) {
-//     if (winrt::get_class_name(element) == L"Taskbar.TaskListButtonPanel" && element.Name() == L"ExperienceToggleButtonRootPanel") {
-//         auto parent = Media::VisualTreeHelper::GetParent(element).try_as<FrameworkElement>();
-//         if (parent && winrt::get_class_name(parent) == L"Taskbar.SearchBoxLaunchListButton" && parent.Name() == L"SearchBoxLaunchListButton") return nullptr;
-//     }
+VisualStateGroup GetVisualStateGroup(FrameworkElement element, std::wstring_view visualStateGroupName) {
+    if (winrt::get_class_name(element) == L"Taskbar.TaskListButtonPanel" && element.Name() == L"ExperienceToggleButtonRootPanel") {
+        auto parent = Media::VisualTreeHelper::GetParent(element).try_as<FrameworkElement>();
+        if (parent && winrt::get_class_name(parent) == L"Taskbar.SearchBoxLaunchListButton" && parent.Name() == L"SearchBoxLaunchListButton") return nullptr;
+    }
 
-//     auto list = VisualStateManager::GetVisualStateGroups(element);
+    auto list = VisualStateManager::GetVisualStateGroups(element);
 
-//     for (const auto& v : list) if (v.Name() == visualStateGroupName) return v;
-//     return nullptr;
-// }
+    for (const auto& v : list) if (v.Name() == visualStateGroupName) return v;
+    return nullptr;
+}
 
 
 bool TestElementMatcher(FrameworkElement element, ElementMatcher& matcher, VisualStateGroup* visualStateGroup, PCWSTR fallbackClassName) {
@@ -1437,7 +1399,7 @@ bool TestElementMatcher(FrameworkElement element, ElementMatcher& matcher, Visua
         return false;
     }
     
-    // if (matcher.visualStateGroupName && visualStateGroup) *visualStateGroup = GetVisualStateGroup(element, *matcher.visualStateGroupName);
+    if (matcher.visualStateGroupName && visualStateGroup) *visualStateGroup = GetVisualStateGroup(element, *matcher.visualStateGroupName);
     return true;
 }
 
