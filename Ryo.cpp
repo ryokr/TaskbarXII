@@ -808,7 +808,7 @@ const Theme themeRyoMeow = {{
     // ThemeTargetStyles{L"SystemTray.OmniButton#NotificationCenterButton", { L"Grid.Column=6" }},      // time
     // ThemeTargetStyles{L"SystemTray.Stack#ShowDesktopStack", { L"Grid.Column=8" }},                   // show desktop
 
-    ThemeTargetStyles{L"Windows.UI.Xaml.Controls.TextBlock#InnerTextBlock[Text=\uE971]", { L"Text=\uE712"}}, // uE759-thoi uEC43-dot uECCB-largerdot uE712-dots
+    // ThemeTargetStyles{L"Windows.UI.Xaml.Controls.TextBlock#InnerTextBlock[Text=\uE971]", { L"Text=\uE712"}}, // uE759-thoi uEC43-dot uECCB-largerdot uE712-dots
 
     ThemeTargetStyles{L"SystemTray.OmniButton#NotificationCenterButton > Grid > ContentPresenter > ItemsPresenter > StackPanel > ContentPresenter > SystemTray.IconView > Grid > Grid > SystemTray.TextIconContent", { HideItem }},
     
