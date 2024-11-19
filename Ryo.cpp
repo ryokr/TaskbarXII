@@ -18,7 +18,6 @@
 #include <Unknwn.h>
 #include <winrt/base.h>
 
-// forward declare namespaces we alias
 namespace winrt {
     namespace Windows {
         namespace Foundation::Collections {}
@@ -29,38 +28,9 @@ namespace winrt {
     }
 }
 
-// alias some long namespaces for convenience
-namespace wf = winrt::Windows::Foundation;
-// namespace wfc = wf::Collections;
-namespace wux = winrt::Windows::UI::Xaml;
-// namespace wuxc = wux::Controls;
-namespace wuxh = wux::Hosting;
-
 #pragma endregion  // winrt_hpp
 // -------------------------------------------------------------------------------------------------------------
 #pragma region xamlOM_h
-
-/* this ALWAYS GENERATED file contains the definitions for the interfaces */
-
- /* File created by MIDL compiler version 8.01.0622 */
-/* @@MIDL_FILE_HEADING(  ) */
-
-/* verify that the <rpcndr.h> version is high enough to compile this file*/
-#ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 500
-#endif
-
-/* verify that the <rpcsal.h> version is high enough to compile this file*/
-#ifndef __REQUIRED_RPCSAL_H_VERSION__
-#define __REQUIRED_RPCSAL_H_VERSION__ 100
-#endif
-
-#include <rpc.h>
-#include <rpcndr.h>
-
-#ifndef __RPCNDR_H_VERSION__
-#error this stub requires an updated version of <rpcndr.h>
-#endif /* __RPCNDR_H_VERSION__ */
 
 #ifndef COM_NO_WINDOWS_H
 #include <windows.h>
@@ -71,7 +41,6 @@ namespace wuxh = wux::Hosting;
 #define __xamlom_h__
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
-// #pragma once
 #endif
 
 /* Forward Declarations */ 
@@ -595,27 +564,6 @@ void            __RPC_USER  LPSAFEARRAY_UserFree64(     __RPC__in unsigned long 
 #pragma endregion  // xamlOM_h
 // -------------------------------------------------------------------------------------------------------------
 #pragma region windows_ui_xaml_hosting_desktopwindowxamlsource_h
-/* this ALWAYS GENERATED file contains the definitions for the interfaces */
-
- /* File created by MIDL compiler version 8.01.0622 */
-/* @@MIDL_FILE_HEADING(  ) */
-
-/* verify that the <rpcndr.h> version is high enough to compile this file*/
-#ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 500
-#endif
-
-/* verify that the <rpcsal.h> version is high enough to compile this file*/
-#ifndef __REQUIRED_RPCSAL_H_VERSION__
-#define __REQUIRED_RPCSAL_H_VERSION__ 100
-#endif
-
-#include <rpc.h>
-#include <rpcndr.h>
-
-#ifndef __RPCNDR_H_VERSION__
-#error this stub requires an updated version of <rpcndr.h>
-#endif /* __RPCNDR_H_VERSION__ */
 
 #ifndef COM_NO_WINDOWS_H
 #include <windows.h>
@@ -731,9 +679,6 @@ EXTERN_C const IID IID_IDesktopWindowXamlSourceNative2;
 extern RPC_IF_HANDLE __MIDL_itf_windows2Eui2Examl2Ehosting2Edesktopwindowxamlsource_0000_0002_v0_0_c_ifspec;
 extern RPC_IF_HANDLE __MIDL_itf_windows2Eui2Examl2Ehosting2Edesktopwindowxamlsource_0000_0002_v0_0_s_ifspec;
 
-/* Additional Prototypes for ALL interfaces */
-/* end of Additional Prototypes */
-
 #ifdef __cplusplus
 }
 #endif
@@ -775,81 +720,34 @@ const PCWSTR SystemtrayTransform = L"Transform3D:=<CompositeTransform3D Translat
 
 const Theme themeRyoMeow = {{
     ThemeTargetStyles{L"Taskbar.TaskbarFrame#TaskbarFrame", { L"Height=56", WidthAuto, HorizontalAlignRight, TaskbarTransform }},
-    ThemeTargetStyles{L"Taskbar.TaskbarFrame#TaskbarFrame > Grid", { NormalHeight, RoundAllCorner }}, // right round main section
+    ThemeTargetStyles{L"Taskbar.TaskbarFrame#TaskbarFrame > Grid", { NormalHeight, RoundAllCorner }},                               // right round main section
 
     ThemeTargetStyles{L"Taskbar.TaskbarBackground", { L"Opacity=1", NormalHeight, TaskbarBackgroundTransform }},
-    ThemeTargetStyles{L"Taskbar.TaskbarBackground > Grid", { L"Opacity=0.7", RoundAllCorner }}, // left round main section
-    ThemeTargetStyles{L"Windows.UI.Xaml.Shapes.Rectangle#BackgroundStroke", { HideItem }},
-
-    ThemeTargetStyles{L"Microsoft.UI.Xaml.Controls.ItemsRepeater", { L"Margin=0,0,3,0" }}, // main section right margin
+    ThemeTargetStyles{L"Taskbar.TaskbarBackground > Grid", { L"Opacity=0.7", RoundAllCorner }},                                     // left round main section
+    ThemeTargetStyles{L"Microsoft.UI.Xaml.Controls.ItemsRepeater", { L"Margin=0,0,3,0" }},                                          // main section right margin
     
-    ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel", { L"Margin=0,0,7,0", PaddingZero, TaskbarBG, RoundAllCorner }}, // weather section
-    ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel > Grid", { L"Margin=8,0,0,0" }}, // weather section
-    // ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel > Grid", { HideItem }}, // weather icon and text
+    ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel", { L"Margin=0,0,7,0", PaddingZero, TaskbarBG, RoundAllCorner }},   // weather section
+    ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel > Grid", { L"Margin=8,0,0,0" }},                                    // weather section
+    // ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel > Grid", { HideItem }},                                          // weather icon and text
 
-    ThemeTargetStyles{L"Border#LargeTicker1", { L"Margin=0,2,0,0" }}, // weather icon
-    ThemeTargetStyles{L"Border#LargeTicker1 > AdaptiveCards.Rendering.Uwp.WholeItemsPanel > Image", { WeatherIconHeight, WeatherIconWidth }}, // weather icon
+    ThemeTargetStyles{L"Border#LargeTicker1", { L"Margin=0,2,0,0" }},
+    ThemeTargetStyles{L"Border#LargeTicker1 > AdaptiveCards.Rendering.Uwp.WholeItemsPanel > Image", { WeatherIconHeight, WeatherIconWidth }},                                           // weather icon
     ThemeTargetStyles{L"Border#LargeTicker1 > AdaptiveCards.Rendering.Uwp.WholeItemsPanel > Microsoft.UI.Xaml.Controls.AnimatedVisualPlayer", { WeatherIconHeight, WeatherIconWidth }}, // weather icon
-    
-    ThemeTargetStyles{L"Border#LargeTicker2 > AdaptiveCards.Rendering.Uwp.WholeItemsPanel > TextBlock", { L"Margin=6,0,0,0" }}, // weather text
-    // ThemeTargetStyles{L"Border#LargeTicker2 > AdaptiveCards.Rendering.Uwp.WholeItemsPanel > TextBlock", { L"Margin=0,0,6,0", HorizontalAlignRight }}, // weather text
+    ThemeTargetStyles{L"Border#LargeTicker2 > AdaptiveCards.Rendering.Uwp.WholeItemsPanel > TextBlock", { L"Margin=6,0,0,0" }},                                                         // weather text
+    // ThemeTargetStyles{L"Border#LargeTicker2 > AdaptiveCards.Rendering.Uwp.WholeItemsPanel > TextBlock", { L"Margin=0,0,6,0", HorizontalAlignRight }},                                // weather text
 
     ThemeTargetStyles{L"Taskbar.SearchBoxButton > Taskbar.TaskListButtonPanel", { L"Margin=2,0,6,0" }},
-    ThemeTargetStyles{L"Taskbar.SearchBoxButton > Taskbar.TaskListButtonPanel > TextBlock", { SearchBoxDisplayText }}, // searchbox placeholder
+    ThemeTargetStyles{L"Taskbar.SearchBoxButton > Taskbar.TaskListButtonPanel > TextBlock", { SearchBoxDisplayText }},              // searchbox placeholder
     
-    ThemeTargetStyles{L"SystemTray.SystemTrayFrame", { HorizontalAlignLeft, SystemtrayTransform }},         // Systemtray
-    ThemeTargetStyles{L"Grid#SystemTrayFrameGrid", { L"Padding=8,3,0,3", MarginZero, WidthAuto, TaskbarBG, RoundAllCorner }},
-
+    ThemeTargetStyles{L"SystemTray.SystemTrayFrame", { HorizontalAlignLeft, SystemtrayTransform }},
+    ThemeTargetStyles{L"Grid#SystemTrayFrameGrid", { L"Padding=8,3,0,3", MarginZero, TaskbarBG, RoundAllCorner }},
     
-    ThemeTargetStyles{L"SystemTray.Stack#MainStack", { L"Grid.Column=7" }},                             // mic icon
-    // ThemeTargetStyles{L"SystemTray.Stack#NonActivatableStack", { L"Grid.Column=5" }},                // lang
-    // ThemeTargetStyles{L"SystemTray.Stack#SecondaryClockStack", { L"Grid.Column=9" }},                  
-    // ThemeTargetStyles{L"SystemTray.OmniButton#ControlCenterButton", { L"Grid.Column=4" }},           // wifi/sound/battery
-    // ThemeTargetStyles{L"SystemTray.OmniButton#NotificationCenterButton", { L"Grid.Column=6" }},      // time
-    // ThemeTargetStyles{L"SystemTray.Stack#ShowDesktopStack", { L"Grid.Column=8" }},                   // show desktop
+    ThemeTargetStyles{L"SystemTray.Stack#MainStack", { L"Grid.Column=7" }},                                 // mic icon
 
-    // ThemeTargetStyles{L"Windows.UI.Xaml.Controls.TextBlock#InnerTextBlock[Text=\uE971]", { L"Text=\uE712"}}, // uE759-thoi uEC43-dot uECCB-largerdot uE712-dots
+    // ThemeTargetStyles{L"Windows.UI.Xaml.Controls.TextBlock#InnerTextBlock[Text=\uE971]", { L"Text=\uEC43"}},    // uE759-thoi uEC43-dot uECCB-largerdot uE712-dots
 
-    ThemeTargetStyles{L"SystemTray.OmniButton#NotificationCenterButton > Grid > ContentPresenter > ItemsPresenter > StackPanel > ContentPresenter > SystemTray.IconView > Grid > Grid > SystemTray.TextIconContent", { HideItem }},
-    
-    // ThemeTargetStyles{L"SystemTray.ChevronIconView", {
-    //     L"Padding=0"}},
-    // ThemeTargetStyles{L"SystemTray.NotifyIconView#NotifyItemIcon", {
-    //     L"Padding=0"}},
-
-    // ThemeTargetStyles{L"SystemTray.Stack#NotifyIconStack > Grid", {
-    //     TaskbarBG,
-    //     RoundAllCorner,
-    //     L"Padding=8,4,8,4",
-    // }},
-    
-    // ThemeTargetStyles{L"SystemTray.Stack#MainStack > Grid", {
-    //     TaskbarBG,
-    //     RoundAllCorner,
-    //     L"Padding=8,4,8,4",
-    // }},
-
-    // ThemeTargetStyles{L"SystemTray.OmniButton#ControlCenterButton", {
-    //     // L"Margin=4,0,4,0",
-    // }},
-    // ThemeTargetStyles{L"SystemTray.OmniButton#ControlCenterButton > Grid", {
-    //     TaskbarBG,
-    //     RoundAllCorner,
-    //     L"Padding=8,4,8,4",
-    // }},  // control center
-
-    // ThemeTargetStyles{L"SystemTray.OmniButton#NotificationCenterButton > Grid", {
-    //     TaskbarBG,
-    //     RoundAllCorner,
-    //     L"Padding=8,4,8,4",
-    // }},
-
-    // ThemeTargetStyles{L"SystemTray.OmniButton#NotificationCenterButton > Grid > ContentPresenter > ItemsPresenter > StackPanel > ContentPresenter > systemtray:IconView#SystemTrayIcon > Grid > Grid > SystemTray.DateTimeIconContent", {
-    //     // HideItem,
-    // }},
-
-    // ThemeTargetStyles{L"SystemTray.StackListView#IconStack > ItemsPresenter > StackPanel > ContentPresenter > SystemTray.IconView#SystemTrayIcon", {
-    //     L"Padding=0"}},
+    ThemeTargetStyles{L"Windows.UI.Xaml.Shapes.Rectangle#BackgroundStroke", { HideItem }},                      // line in main section
+    ThemeTargetStyles{L"SystemTray.OmniButton#NotificationCenterButton > Grid > ContentPresenter > ItemsPresenter > StackPanel > ContentPresenter > SystemTray.IconView > Grid > Grid > SystemTray.TextIconContent", { HideItem }}, // notification icon
 }};
 // -------------------------------------------------------------------------------------------------------------
 // clang-format on
@@ -892,7 +790,7 @@ class VisualTreeWatcher : public winrt::implements<VisualTreeWatcher, IVisualTre
 
         template<typename T>
         T FromHandle(InstanceHandle handle) {
-            wf::IInspectable obj;
+            winrt::Windows::Foundation::IInspectable obj;
             winrt::check_hresult(m_XamlDiagnostics->GetIInspectableFromHandle(handle, reinterpret_cast<::IInspectable**>(winrt::put_abi(obj))));
 
             return obj.as<T>();
@@ -933,12 +831,12 @@ HRESULT VisualTreeWatcher::OnVisualTreeChange(ParentChildRelation, VisualElement
     Wh_Log(L"Element type: %s", element.Type);
 
     if (mutationType == Add) {
-        const auto inspectable = FromHandle<wf::IInspectable>(element.Handle);
+        const auto inspectable = FromHandle<winrt::Windows::Foundation::IInspectable>(element.Handle);
 
-        auto frameworkElement = inspectable.try_as<wux::FrameworkElement>();
+        auto frameworkElement = inspectable.try_as<winrt::Windows::UI::Xaml::FrameworkElement>();
         if (!frameworkElement) {
-            const auto desktopXamlSource = FromHandle<wuxh::DesktopWindowXamlSource>(element.Handle);
-            frameworkElement = desktopXamlSource.Content().try_as<wux::FrameworkElement>();
+            const auto desktopXamlSource = FromHandle<winrt::Windows::UI::Xaml::Hosting::DesktopWindowXamlSource>(element.Handle);
+            frameworkElement = desktopXamlSource.Content().try_as<winrt::Windows::UI::Xaml::FrameworkElement>();
         }
 
         if (frameworkElement) {
@@ -1159,7 +1057,7 @@ bool g_elementPropertyModifying;
 
 struct BackgroundFillDelayedApplyData {
     UINT_PTR timer = 0;
-    winrt::weak_ref<wux::FrameworkElement> element;
+    winrt::weak_ref<winrt::Windows::UI::Xaml::FrameworkElement> element;
     std::wstring fallbackClassName;
 };
 
@@ -1528,7 +1426,7 @@ void ApplyCustomizationsForVisualStateGroup(FrameworkElement element, VisualStat
     }
 }
 
-void RestoreCustomizationsForVisualStateGroup(FrameworkElement element, std::optional<winrt::weak_ref<VisualStateGroup>> VSGOptionalWeakPtr, const ElementCustomizationStateForVisualStateGroup& ECSFVSG) {
+void RestoreVSG(FrameworkElement element, std::optional<winrt::weak_ref<VisualStateGroup>> VSGOptionalWeakPtr, const ElementCustomizationStateForVisualStateGroup& ECSFVSG) {
     if (element) {
         for (const auto& [property, state] : ECSFVSG.propertyCustomizationStates) {
             element.UnregisterPropertyChangedCallback(property, state.propertyChangedToken);
@@ -1548,8 +1446,8 @@ void ApplyCustomizations(InstanceHandle handle, FrameworkElement element, PCWSTR
 
     auto& elementCustomizationState = g_elementsCustomizationState[handle];
 
-    for (const auto& [visualStateGroupOptionalWeakPtrIter, stateIter] : elementCustomizationState.perVisualStateGroup) {
-        RestoreCustomizationsForVisualStateGroup(element, visualStateGroupOptionalWeakPtrIter, stateIter);
+    for (const auto& [vSGOptionalWeakPtrIter, stateIter] : elementCustomizationState.perVisualStateGroup) {
+        RestoreVSG(element, vSGOptionalWeakPtrIter, stateIter);
     }
 
     elementCustomizationState.element = element;
@@ -1578,8 +1476,8 @@ void CleanupCustomizations(InstanceHandle handle) {
     auto& elementCustomizationState = it->second;
     auto element = elementCustomizationState.element.get();
 
-    for (const auto& [visualStateGroupOptionalWeakPtrIter, stateIter] : elementCustomizationState.perVisualStateGroup) {
-        RestoreCustomizationsForVisualStateGroup(element, visualStateGroupOptionalWeakPtrIter, stateIter);
+    for (const auto& [vSGOptionalWeakPtrIter, stateIter] : elementCustomizationState.perVisualStateGroup) {
+        RestoreVSG(element, vSGOptionalWeakPtrIter, stateIter);
     }
 
     g_elementsCustomizationState.erase(it);
@@ -1690,25 +1588,24 @@ void AddElementCustomizationRules(std::wstring_view target, std::vector<std::wst
     g_elementsCustomizationRules.push_back(std::move(elementCustomizationRules));
 }
 
-void ProcessAllStylesFromTheme() {
-    const Theme* theme = &themeRyoMeow;
-
-    for (const auto& themeTargetStyle : theme->targetStyles) {
+void ProcessTheme(const Theme& theme) {
+    for (const auto& themeTargetStyle : theme.targetStyles) {
         try {
-            std::vector<std::wstring> styles { themeTargetStyle.styles.begin(), themeTargetStyle.styles.end() };
-            AddElementCustomizationRules(themeTargetStyle.target, std::move(styles));
-        } catch (winrt::hresult_error const& ex) {
-        } catch (std::exception const& ex) {
-        }
+            AddElementCustomizationRules(
+                themeTargetStyle.target,
+                std::vector<std::wstring>{ themeTargetStyle.styles.begin(), themeTargetStyle.styles.end() }
+            );
+        } catch (const winrt::hresult_error&) {
+        } catch (const std::exception&) {}
     }
 }
 
 void InitializeSettingsAndTap() {
     DWORD kNoThreadId = 0;
-    if (!g_targetThreadId.compare_exchange_strong(kNoThreadId, GetCurrentThreadId())) return;
-
-    ProcessAllStylesFromTheme();
-    InjectWindhawkTAP();
+    if (g_targetThreadId.compare_exchange_strong(kNoThreadId, GetCurrentThreadId())) {
+        ProcessTheme(themeRyoMeow);
+        InjectWindhawkTAP();
+    }
 }
 
 void UninitializeSettingsAndTap() {
@@ -1718,8 +1615,8 @@ void UninitializeSettingsAndTap() {
     for (const auto& [handle, elementCustomizationState] : g_elementsCustomizationState) {
         auto element = elementCustomizationState.element.get();
 
-        for (const auto& [visualStateGroupOptionalWeakPtrIter, stateIter] : elementCustomizationState.perVisualStateGroup) {
-            RestoreCustomizationsForVisualStateGroup(element, visualStateGroupOptionalWeakPtrIter, stateIter);
+        for (const auto& [vSGOptionalWeakPtrIter, stateIter] : elementCustomizationState.perVisualStateGroup) {
+            RestoreVSG(element, vSGOptionalWeakPtrIter, stateIter);
         }
     }
 
@@ -1733,13 +1630,15 @@ CreateWindowExW_t CreateWindowExW_Original;
 HWND WINAPI CreateWindowExW_Hook(DWORD dwExStyle, LPCWSTR lpClassName, LPCWSTR lpWindowName, DWORD dwStyle, int X, int Y, int nWidth, int nHeight, HWND hWndParent, HMENU hMenu, HINSTANCE hInstance, PVOID lpParam) {
     HWND hWnd = CreateWindowExW_Original(dwExStyle, lpClassName, lpWindowName, dwStyle, X, Y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
     if (!hWnd) return hWnd;
+    if (g_targetThreadId || !hWndParent) return hWnd;
 
-    WCHAR className[64];
-    if (!g_targetThreadId && hWndParent && GetClassName(hWnd, className, ARRAYSIZE(className)) &&
-        _wcsicmp(className, L"Windows.UI.Composition.DesktopWindowContentBridge") == 0 &&
-        GetClassName(hWndParent, className, ARRAYSIZE(className)) &&
-        _wcsicmp(className, L"Shell_TrayWnd") == 0) {
-        InitializeSettingsAndTap();
+    const int classNameSize = 64;
+    WCHAR className[classNameSize];
+
+    if (GetClassName(hWnd, className, classNameSize) && _wcsicmp(className, L"Windows.UI.Composition.DesktopWindowContentBridge") == 0) {
+        if (GetClassName(hWndParent, className, classNameSize) && _wcsicmp(className, L"Shell_TrayWnd") == 0) {
+            InitializeSettingsAndTap();
+        }
     }
 
     return hWnd;
@@ -1792,19 +1691,16 @@ HWND GetTaskbarUiWnd() {
 }
 
 BOOL Wh_ModInit() {
-    Wh_Log(L">");
     Wh_SetFunctionHook((void*)CreateWindowExW, (void*)CreateWindowExW_Hook, (void**)&CreateWindowExW_Original);
     return TRUE;
 }
 
 void Wh_ModAfterInit() {
-    Wh_Log(L">");
     HWND hTaskbarUiWnd = GetTaskbarUiWnd();
     if (hTaskbarUiWnd) RunFromWindowThread(hTaskbarUiWnd, [](PVOID) WINAPI { InitializeSettingsAndTap(); }, nullptr);
 }
 
 void Wh_ModUninit() {
-    Wh_Log(L">");
     if (g_visualTreeWatcher) {
         g_visualTreeWatcher->UnadviseVisualTreeChange();
         g_visualTreeWatcher = nullptr;
