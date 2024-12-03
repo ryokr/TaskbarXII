@@ -699,7 +699,9 @@ struct Theme { std::vector<ThemeTargetStyles> targetStyles; };
 // -------------------------------------------------------------------------------------------------------------
 // const PCWSTR WeatherImage = L"Background:=<ImageBrush Stretch=\"UniformToFill\" ImageSource=\"H:\\Home\\Tool\\WinMod\\TaskbarXI\\Images\\roxy0.gif\" />";
 
-const PCWSTR TaskbarBG = L"Background:=<AcrylicBrush TintColor=\"{ThemeResource SystemAltHighColor}\" TintOpacity=\"0.6\" />";
+// const PCWSTR TaskbarBG = L"Background:=<AcrylicBrush TintColor=\"{ThemeResource SystemChromeAltHighColor}\" TintOpacity=\"0.6\" FallbackColor=\"{ThemeResource SystemChromeLowColor}\" />";
+const PCWSTR TaskbarSolidBG = L"Background:=<SolidColorBrush Color=\"{ThemeResource SystemChromeAltHighColor}\" Opacity=\"0.6\" />";
+
 const PCWSTR HorizontalAlignRight = L"HorizontalAlignment=Right";
 const PCWSTR HorizontalAlignLeft = L"HorizontalAlignment=Left";
 const PCWSTR PaddingZero = L"Padding=0";
@@ -722,11 +724,11 @@ const Theme themeRyoMeow = {{
     ThemeTargetStyles{L"Taskbar.TaskbarFrame#TaskbarFrame", { L"Height=56", WidthAuto, HorizontalAlignRight, TaskbarTransform }},
     ThemeTargetStyles{L"Taskbar.TaskbarFrame#TaskbarFrame > Grid", { NormalHeight, RoundAllCorner }},                               // right round main section
 
-    ThemeTargetStyles{L"Taskbar.TaskbarBackground", { L"Opacity=1", NormalHeight, TaskbarBackgroundTransform }},
-    ThemeTargetStyles{L"Taskbar.TaskbarBackground > Grid", { L"Opacity=0.7", RoundAllCorner }},                                     // left round main section
+    ThemeTargetStyles{L"Taskbar.TaskbarBackground", { L"Opacity=0.7", NormalHeight, TaskbarBackgroundTransform }},
+    ThemeTargetStyles{L"Taskbar.TaskbarBackground > Grid", { L"Opacity=1", RoundAllCorner }},                                     // left round main section
     ThemeTargetStyles{L"Microsoft.UI.Xaml.Controls.ItemsRepeater", { L"Margin=0,0,3,0" }},                                          // main section right margin
     
-    ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel", { L"Margin=0,0,7,0", PaddingZero, TaskbarBG, RoundAllCorner }},   // weather section
+    ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel", { L"Margin=0,0,7,0", PaddingZero, TaskbarSolidBG, RoundAllCorner }},   // weather section
     ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel > Grid", { L"Margin=8,0,0,0" }},                                    // weather section
     // ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel > Grid", { HideItem }},                                          // weather icon and text
 
@@ -740,7 +742,7 @@ const Theme themeRyoMeow = {{
     ThemeTargetStyles{L"Taskbar.SearchBoxButton > Taskbar.TaskListButtonPanel > TextBlock", { SearchBoxDisplayText }},              // searchbox placeholder
     
     ThemeTargetStyles{L"SystemTray.SystemTrayFrame", { HorizontalAlignLeft, SystemtrayTransform }},
-    ThemeTargetStyles{L"Grid#SystemTrayFrameGrid", { L"Padding=8,3,0,3", MarginZero, TaskbarBG, RoundAllCorner }},
+    ThemeTargetStyles{L"Grid#SystemTrayFrameGrid", { L"Padding=8,3,0,3", MarginZero, TaskbarSolidBG, RoundAllCorner }},
     
     ThemeTargetStyles{L"SystemTray.Stack#MainStack", { L"Grid.Column=7" }},                                 // mic icon
 
