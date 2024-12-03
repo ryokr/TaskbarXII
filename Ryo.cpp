@@ -1,692 +1,18 @@
 // ==WindhawkMod==
-// @id              taskbar-11
-// @name            TaskbarXI
-// @description     ✦ Taskbar 11 Alteration
+// @id              taskbar-12
+// @name            Taskbar XII
+// @description     ✦ Ultimate Window Taskbar
 // @version         4.0.0
 // @author          ryokr
 // @github          https://github.com/ryokr
+// @homepage        https://ryokr.github.io
 // @include         explorer.exe
 // @architecture    x86-64
 // @compilerOptions -lcomctl32 -lole32 -loleaut32 -lruntimeobject -Wl,--export-all-symbols
 // ==/WindhawkMod==
 
-// -------------------------------------------------------------------------------------------------------------
-// clang-format off
-#pragma region winrt_hpp
-
-#include <guiddef.h>
-#include <Unknwn.h>
-#include <winrt/base.h>
-
-namespace winrt {
-    namespace Windows {
-        namespace Foundation::Collections {}
-        namespace UI::Xaml {
-            namespace Controls {}
-            namespace Hosting {}
-        }
-    }
-}
-
-#pragma endregion  // winrt_hpp
-// -------------------------------------------------------------------------------------------------------------
-#pragma region xamlOM_h
-
-#ifndef COM_NO_WINDOWS_H
-#include <windows.h>
-#include <ole2.h>
-#endif /*COM_NO_WINDOWS_H*/
-
-#ifndef __xamlom_h__
-#define __xamlom_h__
-
-#if defined(_MSC_VER) && (_MSC_VER >= 1020)
-#endif
-
-/* Forward Declarations */ 
-
-#ifndef __IVisualTreeServiceCallback_FWD_DEFINED__
-#define __IVisualTreeServiceCallback_FWD_DEFINED__
-typedef interface IVisualTreeServiceCallback IVisualTreeServiceCallback;
-#endif 	/* __IVisualTreeServiceCallback_FWD_DEFINED__ */
-
-#ifndef __IVisualTreeServiceCallback2_FWD_DEFINED__
-#define __IVisualTreeServiceCallback2_FWD_DEFINED__
-typedef interface IVisualTreeServiceCallback2 IVisualTreeServiceCallback2;
-#endif 	/* __IVisualTreeServiceCallback2_FWD_DEFINED__ */
-
-#ifndef __IVisualTreeService_FWD_DEFINED__
-#define __IVisualTreeService_FWD_DEFINED__
-typedef interface IVisualTreeService IVisualTreeService;
-#endif 	/* __IVisualTreeService_FWD_DEFINED__ */
-
-#ifndef __IXamlDiagnostics_FWD_DEFINED__
-#define __IXamlDiagnostics_FWD_DEFINED__
-typedef interface IXamlDiagnostics IXamlDiagnostics;
-#endif 	/* __IXamlDiagnostics_FWD_DEFINED__ */
-
-#ifndef __IBitmapData_FWD_DEFINED__
-#define __IBitmapData_FWD_DEFINED__
-typedef interface IBitmapData IBitmapData;
-#endif 	/* __IBitmapData_FWD_DEFINED__ */
-
-#ifndef __IVisualTreeService2_FWD_DEFINED__
-#define __IVisualTreeService2_FWD_DEFINED__
-typedef interface IVisualTreeService2 IVisualTreeService2;
-#endif 	/* __IVisualTreeService2_FWD_DEFINED__ */
-
-#ifndef __IVisualTreeService3_FWD_DEFINED__
-#define __IVisualTreeService3_FWD_DEFINED__
-typedef interface IVisualTreeService3 IVisualTreeService3;
-#endif 	/* __IVisualTreeService3_FWD_DEFINED__ */
-
-/* header files for imported files */
-#include <oaidl.h>
-#include <ocidl.h>
-#include <inspectable.h>
-#include <dxgi1_2.h>
-
-#ifdef __cplusplus
-extern "C"{
-#endif
-
-/* interface __MIDL_itf_xamlom_0000_0000 */
-/* [local] */ 
-
-#pragma region Application Family
-#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
-// #pragma warning(push)
-// #pragma warning(disable:4668) 
-// #pragma warning(disable:4001) 
-// #pragma once
-// #pragma warning(pop)
-// Win32 API definitions
-#define E_NOTFOUND HRESULT_FROM_WIN32(ERROR_NOT_FOUND)
-#define E_UNKNOWNTYPE MAKE_HRESULT(SEVERITY_ERROR, FACILITY_XAML, 40L)
-_Check_return_ HRESULT InitializeXamlDiagnostic(_In_ LPCWSTR endPointName, _In_ DWORD pid, _In_ LPCWSTR wszDllXamlDiagnostics, _In_ LPCWSTR wszTAPDllName,  _In_ CLSID tapClsid);
-_Check_return_ HRESULT InitializeXamlDiagnosticsEx(_In_ LPCWSTR endPointName, _In_ DWORD pid, _In_ LPCWSTR wszDllXamlDiagnostics, _In_ LPCWSTR wszTAPDllName, _In_ CLSID tapClsid, _In_ LPCWSTR wszInitializationData);
-typedef MIDL_uhyper InstanceHandle;
-
-typedef enum VisualMutationType {
-    Add	= 0,
-    Remove	= ( Add + 1 ) 
-} 	VisualMutationType;
-
-typedef enum BaseValueSource {
-    BaseValueSourceUnknown = 0,
-    BaseValueSourceDefault = ( BaseValueSourceUnknown + 1 ) ,
-    BaseValueSourceBuiltInStyle	= ( BaseValueSourceDefault + 1 ) ,
-    BaseValueSourceStyle = ( BaseValueSourceBuiltInStyle + 1 ) ,
-    BaseValueSourceLocal = ( BaseValueSourceStyle + 1 ) ,
-    Inherited = ( BaseValueSourceLocal + 1 ) ,
-    DefaultStyleTrigger	= ( Inherited + 1 ) ,
-    TemplateTrigger	= ( DefaultStyleTrigger + 1 ) ,
-    StyleTrigger = ( TemplateTrigger + 1 ) ,
-    ImplicitStyleReference = ( StyleTrigger + 1 ) ,
-    ParentTemplate = ( ImplicitStyleReference + 1 ) ,
-    ParentTemplateTrigger = ( ParentTemplate + 1 ) ,
-    Animation = ( ParentTemplateTrigger + 1 ) ,
-    Coercion = ( Animation + 1 ) ,
-    BaseValueSourceVisualState = ( Coercion + 1 ) 
-} 	BaseValueSource;
-
-typedef struct SourceInfo {
-    BSTR FileName;
-    unsigned int LineNumber;
-    unsigned int ColumnNumber;
-    unsigned int CharPosition;
-    BSTR Hash;
-} 	SourceInfo;
-
-typedef struct ParentChildRelation {
-    InstanceHandle Parent;
-    InstanceHandle Child;
-    unsigned int ChildIndex;
-} 	ParentChildRelation;
-
-typedef struct VisualElement {
-    InstanceHandle Handle;
-    SourceInfo SrcInfo;
-    BSTR Type;
-    BSTR Name;
-    unsigned int NumChildren;
-} 	VisualElement;
-
-typedef struct PropertyChainSource {
-    InstanceHandle Handle;
-    BSTR TargetType;
-    BSTR Name;
-    BaseValueSource Source;
-    SourceInfo SrcInfo;
-} 	PropertyChainSource;
-
-typedef enum MetadataBit {
-    None = 0,
-    IsValueHandle = 0x1,
-    IsPropertyReadOnly = 0x2,
-    IsValueCollection = 0x4,
-    IsValueCollectionReadOnly = 0x8,
-    IsValueBindingExpression  = 0x10,
-    IsValueNull	= 0x20,
-    IsValueHandleAndEvaluatedValue = 0x40
-} 	MetadataBit;
-
-typedef struct PropertyChainValue {
-    unsigned int Index;
-    BSTR Type;
-    BSTR DeclaringType;
-    BSTR ValueType;
-    BSTR ItemType;
-    BSTR Value;
-    BOOL Overridden;
-    hyper MetadataBits;
-    BSTR PropertyName;
-    unsigned int PropertyChainIndex;
-} 	PropertyChainValue;
-
-typedef struct EnumType {
-    BSTR Name;
-    SAFEARRAY * ValueInts;
-    SAFEARRAY * ValueStrings;
-} 	EnumType;
-
-typedef struct CollectionElementValue {
-    unsigned int Index;
-    BSTR ValueType;
-    BSTR Value;
-    hyper MetadataBits;
-} 	CollectionElementValue;
-
-typedef  enum RenderTargetBitmapOptions {
-    RenderTarget	= 0,
-    RenderTargetAndChildren	= ( RenderTarget + 1 ) 
-} 	RenderTargetBitmapOptions;
-
-typedef struct BitmapDescription {
-    unsigned int Width;
-    unsigned int Height;
-    DXGI_FORMAT Format;
-    DXGI_ALPHA_MODE AlphaMode;
-} 	BitmapDescription;
-
-typedef enum ResourceType {
-    ResourceTypeStatic	= 0,
-    ResourceTypeTheme	= ( ResourceTypeStatic + 1 ) 
-} 	ResourceType;
-
-typedef enum VisualElementState {
-    ErrorResolved	= 0,
-    ErrorResourceNotFound	= ( ErrorResolved + 1 ) ,
-    ErrorInvalidResource	= ( ErrorResourceNotFound + 1 ) 
-}   VisualElementState;
-
-extern RPC_IF_HANDLE __MIDL_itf_xamlom_0000_0000_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_xamlom_0000_0000_v0_0_s_ifspec;
-
-#ifndef __IVisualTreeServiceCallback_INTERFACE_DEFINED__
-#define __IVisualTreeServiceCallback_INTERFACE_DEFINED__
-
-/* interface IVisualTreeServiceCallback */
-/* [unique][uuid][object] */ 
-
-EXTERN_C const IID IID_IVisualTreeServiceCallback;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    #ifdef __CRT_UUID_DECL
-    __CRT_UUID_DECL(IVisualTreeServiceCallback, 0xAA7A8931, 0x80E4, 0x4FEC, 0x8F, 0x3B, 0x55, 0x3F, 0x87, 0xB4, 0x96, 0x6E);
-    #endif
-
-    MIDL_INTERFACE("AA7A8931-80E4-4FEC-8F3B-553F87B4966E")
-    IVisualTreeServiceCallback : public IUnknown {
-        public:
-            virtual HRESULT STDMETHODCALLTYPE OnVisualTreeChange( 
-                /* [in] */ ParentChildRelation relation,
-                /* [in] */ VisualElement element,
-                /* [in] */ VisualMutationType mutationType) = 0;
-    };
-    
-#else 	/* C style interface */
-#error Only C++ style interface is supported
-#endif 	/* C style interface */
-#endif 	/* __IVisualTreeServiceCallback_INTERFACE_DEFINED__ */
-
-#ifndef __IVisualTreeServiceCallback2_INTERFACE_DEFINED__
-#define __IVisualTreeServiceCallback2_INTERFACE_DEFINED__
-
-/* interface IVisualTreeServiceCallback2 */
-/* [unique][uuid][object] */ 
-
-EXTERN_C const IID IID_IVisualTreeServiceCallback2;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    #ifdef __CRT_UUID_DECL
-    __CRT_UUID_DECL(IVisualTreeServiceCallback2, 0xBAD9EB88, 0xAE77, 0x4397, 0xB9, 0x48, 0x5F, 0xA2, 0xDB, 0x0A, 0x19, 0xEA);
-    #endif
-
-    MIDL_INTERFACE("BAD9EB88-AE77-4397-B948-5FA2DB0A19EA")
-    IVisualTreeServiceCallback2 : public IVisualTreeServiceCallback {
-        public:
-            virtual HRESULT STDMETHODCALLTYPE OnElementStateChanged( 
-                /* [in] */ InstanceHandle element,
-                /* [in] */ VisualElementState elementState,
-                /* [in] */ __RPC__in LPCWSTR context) = 0;    
-    };
-    
-#else 	/* C style interface */
-#error Only C++ style interface is supported
-#endif 	/* C style interface */
-#endif 	/* __IVisualTreeServiceCallback2_INTERFACE_DEFINED__ */
-
-#ifndef __IVisualTreeService_INTERFACE_DEFINED__
-#define __IVisualTreeService_INTERFACE_DEFINED__
-
-/* interface IVisualTreeService */
-/* [unique][uuid][object] */ 
-
-EXTERN_C const IID IID_IVisualTreeService;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    #ifdef __CRT_UUID_DECL
-    __CRT_UUID_DECL(IVisualTreeService, 0xA593B11A, 0xD17F, 0x48BB, 0x8F, 0x66, 0x83, 0x91, 0x07, 0x31, 0xC8, 0xA5);
-    #endif
-
-    MIDL_INTERFACE("A593B11A-D17F-48BB-8F66-83910731C8A5")
-    IVisualTreeService : public IUnknown {
-        public:
-            virtual HRESULT STDMETHODCALLTYPE AdviseVisualTreeChange( 
-                /* [in] */ __RPC__in_opt IVisualTreeServiceCallback *pCallback) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE UnadviseVisualTreeChange( 
-                /* [in] */ __RPC__in_opt IVisualTreeServiceCallback *pCallback) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE GetEnums( 
-                /* [out] */ __RPC__out unsigned int *pCount,
-                /* [size_is][size_is][out] */ __RPC__deref_out_ecount_full_opt(*pCount) EnumType **ppEnums) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE CreateInstance( 
-                /* [in] */ __RPC__in BSTR typeName,
-                /* [in] */ __RPC__in BSTR value,
-                /* [retval][out] */ __RPC__out InstanceHandle *pInstanceHandle) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE GetPropertyValuesChain( 
-                /* [in] */ InstanceHandle instanceHandle,
-                /* [out] */ __RPC__out unsigned int *pSourceCount,
-                /* [size_is][size_is][out] */ __RPC__deref_out_ecount_full_opt(*pSourceCount) PropertyChainSource **ppPropertySources,
-                /* [out] */ __RPC__out unsigned int *pPropertyCount,
-                /* [size_is][size_is][out] */ __RPC__deref_out_ecount_full_opt(*pPropertyCount) PropertyChainValue **ppPropertyValues) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE SetProperty( 
-                /* [in] */ InstanceHandle instanceHandle,
-                /* [in] */ InstanceHandle value,
-                /* [in] */ unsigned int propertyIndex) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE ClearProperty( 
-                /* [in] */ InstanceHandle instanceHandle,
-                /* [in] */ unsigned int propertyIndex) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE GetCollectionCount( 
-                /* [in] */ InstanceHandle instanceHandle,
-                /* [out] */ __RPC__out unsigned int *pCollectionSize) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE GetCollectionElements( 
-                /* [in] */ InstanceHandle instanceHandle,
-                /* [in] */ unsigned int startIndex,
-                /* [out][in] */ __RPC__inout unsigned int *pElementCount,
-                /* [size_is][size_is][out] */ __RPC__deref_out_ecount_full_opt(*pElementCount) CollectionElementValue **ppElementValues) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE AddChild( 
-                /* [in] */ InstanceHandle parent,
-                /* [in] */ InstanceHandle child,
-                /* [in] */ unsigned int index) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE RemoveChild( 
-                /* [in] */ InstanceHandle parent,
-                /* [in] */ unsigned int index) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE ClearChildren( 
-                /* [in] */ InstanceHandle parent) = 0;
-    };
-    
-#else 	/* C style interface */
-#error Only C++ style interface is supported
-#endif 	/* C style interface */
-#endif 	/* __IVisualTreeService_INTERFACE_DEFINED__ */
-
-#ifndef __IXamlDiagnostics_INTERFACE_DEFINED__
-#define __IXamlDiagnostics_INTERFACE_DEFINED__
-
-/* interface IXamlDiagnostics */
-/* [unique][uuid][object] */ 
-
-EXTERN_C const IID IID_IXamlDiagnostics;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    #ifdef __CRT_UUID_DECL
-    __CRT_UUID_DECL(IXamlDiagnostics, 0x18C9E2B6, 0x3F43, 0x4116, 0x9F, 0x2B, 0xFF, 0x93, 0x5D, 0x77, 0x70, 0xD2);
-    #endif
-
-    MIDL_INTERFACE("18C9E2B6-3F43-4116-9F2B-FF935D7770D2")
-    IXamlDiagnostics : public IUnknown {
-        public:
-            virtual HRESULT STDMETHODCALLTYPE GetDispatcher( 
-                /* [retval][out] */ __RPC__deref_out_opt IInspectable **ppDispatcher) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE GetUiLayer( 
-                /* [retval][out] */ __RPC__deref_out_opt IInspectable **ppLayer) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE GetApplication( 
-                /* [retval][out] */ __RPC__deref_out_opt IInspectable **ppApplication) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE GetIInspectableFromHandle( 
-                /* [in] */ InstanceHandle instanceHandle,
-                /* [retval][out] */ __RPC__deref_out_opt IInspectable **ppInstance) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE GetHandleFromIInspectable( 
-                /* [in] */ __RPC__in_opt IInspectable *pInstance,
-                /* [retval][out] */ __RPC__out InstanceHandle *pHandle) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE HitTest( 
-                /* [in] */ RECT rect,
-                /* [out] */ __RPC__out unsigned int *pCount,
-                /* [size_is][size_is][out] */ __RPC__deref_out_ecount_full_opt(*pCount) InstanceHandle **ppInstanceHandles) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE RegisterInstance( 
-                /* [in] */ __RPC__in_opt IInspectable *pInstance,
-                /* [retval][out] */ __RPC__out InstanceHandle *pInstanceHandle) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE GetInitializationData( 
-                /* [retval][out] */ __RPC__deref_out_opt BSTR *pInitializationData) = 0;
-    };
-    
-#else 	/* C style interface */
-#error Only C++ style interface is supported
-#endif 	/* C style interface */
-#endif 	/* __IXamlDiagnostics_INTERFACE_DEFINED__ */
-
-#ifndef __IBitmapData_INTERFACE_DEFINED__
-#define __IBitmapData_INTERFACE_DEFINED__
-
-/* interface IBitmapData */
-/* [unique][uuid][object] */ 
-
-EXTERN_C const IID IID_IBitmapData;
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    #ifdef __CRT_UUID_DECL
-    __CRT_UUID_DECL(IBitmapData, 0xd1a34ef2, 0xcad8, 0x4635, 0xa3, 0xd2, 0xfc, 0xda, 0x8d, 0x3f, 0x3c, 0xaf);
-    #endif
-
-    MIDL_INTERFACE("d1a34ef2-cad8-4635-a3d2-fcda8d3f3caf")
-    IBitmapData : public IUnknown {
-        public:
-            virtual HRESULT STDMETHODCALLTYPE CopyBytesTo( 
-                /* [in] */ unsigned int sourceOffsetInBytes,
-                /* [in] */ unsigned int maxBytesToCopy,
-                /* [size_is][out] */ __RPC__out_ecount_full(maxBytesToCopy) byte *pvBytes,
-                /* [out] */ __RPC__out unsigned int *numberOfBytesCopied) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE GetStride( 
-                /* [out] */ __RPC__out unsigned int *pStride) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE GetBitmapDescription( 
-                /* [out] */ __RPC__out BitmapDescription *pBitmapDescription) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE GetSourceBitmapDescription( 
-                /* [out] */ __RPC__out BitmapDescription *pBitmapDescription) = 0;
-    };
-    
-#else 	/* C style interface */
-#error Only C++ style interface is supported
-#endif 	/* C style interface */
-#endif 	/* __IBitmapData_INTERFACE_DEFINED__ */
-
-#ifndef __IVisualTreeService2_INTERFACE_DEFINED__
-#define __IVisualTreeService2_INTERFACE_DEFINED__
-
-/* interface IVisualTreeService2 */
-/* [unique][uuid][object] */ 
-
-EXTERN_C const IID IID_IVisualTreeService2;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    #ifdef __CRT_UUID_DECL
-    __CRT_UUID_DECL(IVisualTreeService2, 0x130F5136, 0xEC43, 0x4F61, 0x89, 0xC7, 0x98, 0x01, 0xA3, 0x6D, 0x2E, 0x95);
-    #endif
-
-    MIDL_INTERFACE("130F5136-EC43-4F61-89C7-9801A36D2E95")
-    IVisualTreeService2 : public IVisualTreeService {
-    public:
-        virtual HRESULT STDMETHODCALLTYPE GetPropertyIndex( 
-            /* [in] */ InstanceHandle object,
-            /* [in] */ __RPC__in LPCWSTR propertyName,
-            /* [out] */ __RPC__out unsigned int *pPropertyIndex) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetProperty( 
-            /* [in] */ InstanceHandle object,
-            /* [in] */ unsigned int propertyIndex,
-            /* [out] */ __RPC__out InstanceHandle *pValue) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE ReplaceResource( 
-            /* [in] */ InstanceHandle resourceDictionary,
-            /* [in] */ InstanceHandle key,
-            /* [in] */ InstanceHandle newValue) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE RenderTargetBitmap( 
-            /* [in] */ InstanceHandle handle,
-            /* [in] */ RenderTargetBitmapOptions options,
-            /* [in] */ unsigned int maxPixelWidth,
-            /* [in] */ unsigned int maxPixelHeight,
-            /* [out] */ __RPC__deref_out_opt IBitmapData **ppBitmapData) = 0;
-    };
-    
-#else 	/* C style interface */
-#error Only C++ style interface is supported
-#endif 	/* C style interface */
-#endif 	/* __IVisualTreeService2_INTERFACE_DEFINED__ */
-
-#ifndef __IVisualTreeService3_INTERFACE_DEFINED__
-#define __IVisualTreeService3_INTERFACE_DEFINED__
-
-/* interface IVisualTreeService3 */
-/* [unique][uuid][object] */ 
-
-EXTERN_C const IID IID_IVisualTreeService3;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    #ifdef __CRT_UUID_DECL
-    __CRT_UUID_DECL(IVisualTreeService3, 0x0E79C6E0, 0x85A0, 0x4BE8, 0xB4, 0x1A, 0x65, 0x5C, 0xF1, 0xFD, 0x19, 0xBD);
-    #endif
-
-    MIDL_INTERFACE("0E79C6E0-85A0-4BE8-B41A-655CF1FD19BD")
-    IVisualTreeService3 : public IVisualTreeService2 {
-        public:
-            virtual HRESULT STDMETHODCALLTYPE ResolveResource( 
-                /* [in] */ InstanceHandle resourceContext,
-                /* [in] */ __RPC__in LPCWSTR resourceName,
-                /* [in] */ ResourceType resourceType,
-                /* [in] */ unsigned int propertyIndex) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE GetDictionaryItem( 
-                /* [in] */ InstanceHandle dictionaryHandle,
-                /* [in] */ __RPC__in LPCWSTR resourceName,
-                /* [in] */ BOOL resourceIsImplicitStyle,
-                /* [out] */ __RPC__out InstanceHandle *resourceHandle) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE AddDictionaryItem( 
-                /* [in] */ InstanceHandle dictionaryHandle,
-                /* [in] */ InstanceHandle resourceKey,
-                /* [in] */ InstanceHandle resourceHandle) = 0;
-            
-            virtual HRESULT STDMETHODCALLTYPE RemoveDictionaryItem( 
-                /* [in] */ InstanceHandle dictionaryHandle,
-                /* [in] */ InstanceHandle resourceKey) = 0;
-    };
-
-#else 	/* C style interface */
-#error Only C++ style interface is supported
-#endif 	/* C style interface */
-#endif 	/* __IVisualTreeService3_INTERFACE_DEFINED__ */
-
-/* interface __MIDL_itf_xamlom_0000_0007 */
-/* [local] */ 
-
-#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */ 
-#pragma endregion
-
-extern RPC_IF_HANDLE __MIDL_itf_xamlom_0000_0007_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_xamlom_0000_0007_v0_0_s_ifspec;
-
-/* Additional Prototypes for ALL interfaces */
-unsigned long   __RPC_USER  BSTR_UserSize(     __RPC__in unsigned long *, unsigned long            , __RPC__in BSTR * ); 
-unsigned char * __RPC_USER  BSTR_UserMarshal(  __RPC__in unsigned long *, __RPC__inout_xcount(0) unsigned char *, __RPC__in BSTR * ); 
-unsigned char * __RPC_USER  BSTR_UserUnmarshal(__RPC__in unsigned long *, __RPC__in_xcount(0) unsigned char *, __RPC__out BSTR * ); 
-void            __RPC_USER  BSTR_UserFree(     __RPC__in unsigned long *, __RPC__in BSTR * ); 
-
-unsigned long   __RPC_USER  LPSAFEARRAY_UserSize(     __RPC__in unsigned long *, unsigned long            , __RPC__in LPSAFEARRAY * ); 
-unsigned char * __RPC_USER  LPSAFEARRAY_UserMarshal(  __RPC__in unsigned long *, __RPC__inout_xcount(0) unsigned char *, __RPC__in LPSAFEARRAY * ); 
-unsigned char * __RPC_USER  LPSAFEARRAY_UserUnmarshal(__RPC__in unsigned long *, __RPC__in_xcount(0) unsigned char *, __RPC__out LPSAFEARRAY * ); 
-void            __RPC_USER  LPSAFEARRAY_UserFree(     __RPC__in unsigned long *, __RPC__in LPSAFEARRAY * ); 
-
-unsigned long   __RPC_USER  BSTR_UserSize64(     __RPC__in unsigned long *, unsigned long            , __RPC__in BSTR * ); 
-unsigned char * __RPC_USER  BSTR_UserMarshal64(  __RPC__in unsigned long *, __RPC__inout_xcount(0) unsigned char *, __RPC__in BSTR * ); 
-unsigned char * __RPC_USER  BSTR_UserUnmarshal64(__RPC__in unsigned long *, __RPC__in_xcount(0) unsigned char *, __RPC__out BSTR * ); 
-void            __RPC_USER  BSTR_UserFree64(     __RPC__in unsigned long *, __RPC__in BSTR * ); 
-
-unsigned long   __RPC_USER  LPSAFEARRAY_UserSize64(     __RPC__in unsigned long *, unsigned long            , __RPC__in LPSAFEARRAY * ); 
-unsigned char * __RPC_USER  LPSAFEARRAY_UserMarshal64(  __RPC__in unsigned long *, __RPC__inout_xcount(0) unsigned char *, __RPC__in LPSAFEARRAY * ); 
-unsigned char * __RPC_USER  LPSAFEARRAY_UserUnmarshal64(__RPC__in unsigned long *, __RPC__in_xcount(0) unsigned char *, __RPC__out LPSAFEARRAY * ); 
-void            __RPC_USER  LPSAFEARRAY_UserFree64(     __RPC__in unsigned long *, __RPC__in LPSAFEARRAY * ); 
-/* end of Additional Prototypes */
-
-#ifdef __cplusplus
-}
-#endif
-#endif
-
-#pragma endregion  // xamlOM_h
-// -------------------------------------------------------------------------------------------------------------
-#pragma region windows_ui_xaml_hosting_desktopwindowxamlsource_h
-
-#ifndef COM_NO_WINDOWS_H
-#include <windows.h>
-#include <ole2.h>
-#endif /*COM_NO_WINDOWS_H*/
-
-#ifndef __windows2Eui2Examl2Ehosting2Edesktopwindowxamlsource_h__
-#define __windows2Eui2Examl2Ehosting2Edesktopwindowxamlsource_h__
-
-#if defined(_MSC_VER) && (_MSC_VER >= 1020)
-// #pragma once
-#endif
-
-/* Forward Declarations */ 
-
-#ifndef __IDesktopWindowXamlSourceNative_FWD_DEFINED__
-#define __IDesktopWindowXamlSourceNative_FWD_DEFINED__
-typedef interface IDesktopWindowXamlSourceNative IDesktopWindowXamlSourceNative;
-#endif 	/* __IDesktopWindowXamlSourceNative_FWD_DEFINED__ */
-
-#ifndef __IDesktopWindowXamlSourceNative2_FWD_DEFINED__
-#define __IDesktopWindowXamlSourceNative2_FWD_DEFINED__
-typedef interface IDesktopWindowXamlSourceNative2 IDesktopWindowXamlSourceNative2;
-#endif 	/* __IDesktopWindowXamlSourceNative2_FWD_DEFINED__ */
-
-/* header files for imported files */
-#include <oaidl.h>
-
-#ifdef __cplusplus
-extern "C"{
-#endif 
-
-/* interface __MIDL_itf_windows2Eui2Examl2Ehosting2Edesktopwindowxamlsource_0000_0000 */
-/* [local] */ 
-
-#if (NTDDI_VERSION >= NTDDI_WIN10_RS5)
-
-extern RPC_IF_HANDLE __MIDL_itf_windows2Eui2Examl2Ehosting2Edesktopwindowxamlsource_0000_0000_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_windows2Eui2Examl2Ehosting2Edesktopwindowxamlsource_0000_0000_v0_0_s_ifspec;
-
-#ifndef __IDesktopWindowXamlSourceNative_INTERFACE_DEFINED__
-#define __IDesktopWindowXamlSourceNative_INTERFACE_DEFINED__
-
-/* interface IDesktopWindowXamlSourceNative */
-/* [unique][local][uuid][object] */ 
-
-EXTERN_C const IID IID_IDesktopWindowXamlSourceNative;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    #ifdef __CRT_UUID_DECL
-    __CRT_UUID_DECL(IDesktopWindowXamlSourceNative, 0x3cbcf1bf, 0x2f76, 0x4e9c, 0x96, 0xab, 0xe8, 0x4b, 0x37, 0x97, 0x25, 0x54);
-    #endif
-
-    MIDL_INTERFACE("3cbcf1bf-2f76-4e9c-96ab-e84b37972554")
-    IDesktopWindowXamlSourceNative : public IUnknown
-    {
-    public:
-        virtual HRESULT STDMETHODCALLTYPE AttachToWindow( 
-            /* [annotation][in] */ 
-            _In_  HWND parentWnd) = 0;
-        
-        virtual /* [propget] */ HRESULT STDMETHODCALLTYPE get_WindowHandle( 
-            /* [retval][out] */ HWND *hWnd) = 0;
-        
-    };
-    
-#else 	/* C style interface */
-#error Only C++ style interface is supported
-#endif 	/* C style interface */
-#endif 	/* __IDesktopWindowXamlSourceNative_INTERFACE_DEFINED__ */
-
-/* interface __MIDL_itf_windows2Eui2Examl2Ehosting2Edesktopwindowxamlsource_0000_0001 */
-/* [local] */ 
-
-#endif // NTDDI_VERSION >= NTDDI_WIN10_RS5
-#if (NTDDI_VERSION >= NTDDI_WIN10_19H1)
-
-extern RPC_IF_HANDLE __MIDL_itf_windows2Eui2Examl2Ehosting2Edesktopwindowxamlsource_0000_0001_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_windows2Eui2Examl2Ehosting2Edesktopwindowxamlsource_0000_0001_v0_0_s_ifspec;
-
-#ifndef __IDesktopWindowXamlSourceNative2_INTERFACE_DEFINED__
-#define __IDesktopWindowXamlSourceNative2_INTERFACE_DEFINED__
-
-/* interface IDesktopWindowXamlSourceNative2 */
-/* [unique][local][uuid][object] */ 
-
-EXTERN_C const IID IID_IDesktopWindowXamlSourceNative2;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    #ifdef __CRT_UUID_DECL
-    __CRT_UUID_DECL(IDesktopWindowXamlSourceNative2, 0xe3dcd8c7, 0x3057, 0x4692, 0x99, 0xc3, 0x7b, 0x77, 0x20, 0xaf, 0xda, 0x31);
-    #endif
-
-    MIDL_INTERFACE("e3dcd8c7-3057-4692-99c3-7b7720afda31")
-    IDesktopWindowXamlSourceNative2 : public IDesktopWindowXamlSourceNative {
-        public:
-            virtual HRESULT STDMETHODCALLTYPE PreTranslateMessage( 
-                /* [annotation][in] */ 
-                _In_  const MSG *message,
-                /* [retval][out] */ BOOL *result) = 0;
-    };
-    
-#else 	/* C style interface */
-#error Only C++ style interface is supported
-#endif 	/* C style interface */
-#endif 	/* __IDesktopWindowXamlSourceNative2_INTERFACE_DEFINED__ */
-
-/* interface __MIDL_itf_windows2Eui2Examl2Ehosting2Edesktopwindowxamlsource_0000_0002 */
-/* [local] */ 
-
-#endif // NTDDI_VERSION >= NTDDI_WIN10_19H1
-
-extern RPC_IF_HANDLE __MIDL_itf_windows2Eui2Examl2Ehosting2Edesktopwindowxamlsource_0000_0002_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_windows2Eui2Examl2Ehosting2Edesktopwindowxamlsource_0000_0002_v0_0_s_ifspec;
-
-#ifdef __cplusplus
-}
-#endif
-#endif
-
-#pragma endregion  // windows_ui_xaml_hosting_desktopwindowxamlsource_h
-// -------------------------------------------------------------------------------------------------------------
-// clang-format on
+#include <windows.ui.xaml.hosting.desktopwindowxamlsource.h>
+#include <xamlom.h>
 #include <atomic>
 #include <vector>
 #undef GetCurrentTime
@@ -697,8 +23,8 @@ struct Theme { std::vector<ThemeTargetStyles> targetStyles; };
 
 // clang-format off
 // -------------------------------------------------------------------------------------------------------------
-// const PCWSTR WeatherImage = L"Background:=<ImageBrush Stretch=\"UniformToFill\" ImageSource=\"H:\\Home\\Tool\\WinMod\\TaskbarXI\\Images\\roxy0.gif\" />";
 
+// const PCWSTR WeatherImage = L"Background:=<ImageBrush Stretch=\"UniformToFill\" ImageSource=\"H:\\Home\\Tool\\WinMod\\TaskbarXI\\Images\\roxy0.gif\" />";
 // const PCWSTR TaskbarBG = L"Background:=<AcrylicBrush TintColor=\"{ThemeResource SystemChromeAltHighColor}\" TintOpacity=\"0.6\" FallbackColor=\"{ThemeResource SystemChromeLowColor}\" />";
 const PCWSTR TaskbarSolidBG = L"Background:=<SolidColorBrush Color=\"{ThemeResource SystemChromeAltHighColor}\" Opacity=\"0.6\" />";
 
@@ -725,12 +51,12 @@ const Theme themeRyoMeow = {{
     ThemeTargetStyles{L"Taskbar.TaskbarFrame#TaskbarFrame > Grid", { NormalHeight, RoundAllCorner }},                               // right round main section
 
     ThemeTargetStyles{L"Taskbar.TaskbarBackground", { L"Opacity=0.7", NormalHeight, TaskbarBackgroundTransform }},
-    ThemeTargetStyles{L"Taskbar.TaskbarBackground > Grid", { L"Opacity=1", RoundAllCorner }},                                     // left round main section
+    ThemeTargetStyles{L"Taskbar.TaskbarBackground > Grid", { L"Opacity=1", RoundAllCorner }},                                       // left round main section
     ThemeTargetStyles{L"Microsoft.UI.Xaml.Controls.ItemsRepeater", { L"Margin=0,0,3,0" }},                                          // main section right margin
     
-    ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel", { L"Margin=0,0,7,0", PaddingZero, TaskbarSolidBG, RoundAllCorner }},   // weather section
-    ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel > Grid", { L"Margin=8,0,0,0" }},                                    // weather section
-    // ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel > Grid", { HideItem }},                                          // weather icon and text
+    ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel", { L"Margin=0,0,7,0", PaddingZero, TaskbarSolidBG, RoundAllCorner }},      // weather section
+    ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel > Grid", { L"Margin=8,0,0,0" }},                                            // weather section
+    // ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel > Grid", { HideItem }},                                                  // weather icon and text
 
     ThemeTargetStyles{L"Border#LargeTicker1", { L"Margin=0,2,0,0" }},
     ThemeTargetStyles{L"Border#LargeTicker1 > AdaptiveCards.Rendering.Uwp.WholeItemsPanel > Image", { WeatherIconHeight, WeatherIconWidth }},                                           // weather icon
@@ -744,12 +70,11 @@ const Theme themeRyoMeow = {{
     ThemeTargetStyles{L"SystemTray.SystemTrayFrame", { HorizontalAlignLeft, SystemtrayTransform }},
     ThemeTargetStyles{L"Grid#SystemTrayFrameGrid", { L"Padding=8,3,0,3", MarginZero, TaskbarSolidBG, RoundAllCorner }},
     
-    ThemeTargetStyles{L"SystemTray.Stack#MainStack", { L"Grid.Column=7" }},                                 // mic icon
+    ThemeTargetStyles{L"SystemTray.Stack#MainStack", { L"Grid.Column=7" }},                                         // mic icon
 
-    // ThemeTargetStyles{L"Windows.UI.Xaml.Controls.TextBlock#InnerTextBlock[Text=\uE971]", { L"Text=\uEC43"}},    // uE759-thoi uEC43-dot uECCB-largerdot uE712-dots
+    // ThemeTargetStyles{L"Windows.UI.Xaml.Controls.TextBlock#InnerTextBlock[Text=\uE971]", { L"Text=\uEC43"}},     // uE759-thoi uEC43-dot uECCB-largerdot uE712-dots
 
-    ThemeTargetStyles{L"Windows.UI.Xaml.Shapes.Rectangle#BackgroundStroke", { HideItem }},                      // line in main section
-    // ThemeTargetStyles{L"SystemTray.OmniButton#NotificationCenterButton > Grid > ContentPresenter > ItemsPresenter > StackPanel > ContentPresenter > SystemTray.IconView > Grid > Grid > SystemTray.TextIconContent", { HideItem }}, // notification icon
+    ThemeTargetStyles{L"Windows.UI.Xaml.Shapes.Rectangle#BackgroundStroke", { HideItem }},                          // line in main section
 }};
 // -------------------------------------------------------------------------------------------------------------
 // clang-format on
@@ -765,9 +90,26 @@ HMODULE GetCurrentModuleHandle() {
     return module;
 }
 
-////////////////////////////////////////////////////////////////////////////////
+// -------------------------------------------------------------------------------------------------------------
 // clang-format off
+#pragma region winrt_hpp
 
+#include <guiddef.h>
+#include <Unknwn.h>
+#include <winrt/base.h>
+
+namespace winrt {
+    namespace Windows {
+        namespace Foundation::Collections {}
+        namespace UI::Xaml {
+            namespace Controls {}
+            namespace Hosting {}
+        }
+    }
+}
+
+#pragma endregion  // winrt_hpp
+// -------------------------------------------------------------------------------------------------------------
 #pragma region visualtreewatcher_hpp
 
 #include <winrt/Windows.UI.Xaml.h>
@@ -781,8 +123,6 @@ class VisualTreeWatcher : public winrt::implements<VisualTreeWatcher, IVisualTre
 
         VisualTreeWatcher(VisualTreeWatcher&&) = delete;
         VisualTreeWatcher& operator=(VisualTreeWatcher&&) = delete;
-
-        ~VisualTreeWatcher();
 
         void UnadviseVisualTreeChange();
 
@@ -808,16 +148,10 @@ class VisualTreeWatcher : public winrt::implements<VisualTreeWatcher, IVisualTre
 #include <winrt/Windows.UI.Xaml.Hosting.h>
 
 VisualTreeWatcher::VisualTreeWatcher(winrt::com_ptr<IUnknown> site) : m_XamlDiagnostics(site.as<IXamlDiagnostics>()) {
-    Wh_Log(L"Constructing VisualTreeWatcher");
     winrt::check_hresult(m_XamlDiagnostics.as<IVisualTreeService3>()->AdviseVisualTreeChange(this));
 }
 
-VisualTreeWatcher::~VisualTreeWatcher() {
-    Wh_Log(L"Destructing VisualTreeWatcher");
-}
-
 void VisualTreeWatcher::UnadviseVisualTreeChange() {
-    Wh_Log(L"UnadviseVisualTreeChange VisualTreeWatcher");
     winrt::check_hresult(m_XamlDiagnostics.as<IVisualTreeService3>()->UnadviseVisualTreeChange(this));
 }
 
@@ -830,8 +164,6 @@ HRESULT VisualTreeWatcher::OnVisualTreeChange(ParentChildRelation, VisualElement
         default: Wh_Log(L"Mutation type: %d", static_cast<int>(mutationType)); break;
     }
 
-    Wh_Log(L"Element type: %s", element.Type);
-
     if (mutationType == Add) {
         const auto inspectable = FromHandle<winrt::Windows::Foundation::IInspectable>(element.Handle);
 
@@ -841,10 +173,7 @@ HRESULT VisualTreeWatcher::OnVisualTreeChange(ParentChildRelation, VisualElement
             frameworkElement = desktopXamlSource.Content().try_as<winrt::Windows::UI::Xaml::FrameworkElement>();
         }
 
-        if (frameworkElement) {
-            Wh_Log(L"FrameworkElement name: %s", frameworkElement.Name().c_str());
-            ApplyCustomizations(element.Handle, frameworkElement, element.Type);
-        }
+        if (frameworkElement) { ApplyCustomizations(element.Handle, frameworkElement, element.Type); }
     }
     else if (mutationType == Remove) CleanupCustomizations(element.Handle);
 
@@ -854,9 +183,7 @@ HRESULT VisualTreeWatcher::OnVisualTreeChange(ParentChildRelation, VisualElement
     return S_OK;
 }
 
-HRESULT VisualTreeWatcher::OnElementStateChanged(InstanceHandle, VisualElementState, LPCWSTR) noexcept {
-    return S_OK;
-}
+HRESULT VisualTreeWatcher::OnElementStateChanged(InstanceHandle, VisualElementState, LPCWSTR) noexcept { return S_OK; }
 
 #pragma endregion  // visualtreewatcher_cpp
 //////////////////////////////////////////////////////////////////////////////
@@ -865,9 +192,7 @@ HRESULT VisualTreeWatcher::OnElementStateChanged(InstanceHandle, VisualElementSt
 #include <ocidl.h>
 
 winrt::com_ptr<VisualTreeWatcher> g_visualTreeWatcher;
-
-// {C85D8CC7-5463-40E8-A432-F5916B6427E5}
-static constexpr CLSID CLSID_WindhawkTAP = { 0xc85d8cc7, 0x5463, 0x40e8, { 0xa4, 0x32, 0xf5, 0x91, 0x6b, 0x64, 0x27, 0xe5 } };
+static constexpr CLSID CLSID_WindhawkTAP = { 0xc85d8cc7, 0x5463, 0x40e8, { 0xa4, 0x32, 0xf5, 0x91, 0x6b, 0x64, 0x27, 0xe5 } }; // {C85D8CC7-5463-40E8-A432-F5916B6427E5}
 
 class WindhawkTAP : public winrt::implements<WindhawkTAP, IObjectWithSite, winrt::non_agile> {
     public:
@@ -898,9 +223,7 @@ HRESULT WindhawkTAP::SetSite(IUnknown *pUnkSite) try {
 }
 catch (...) { return winrt::to_hresult(); }
 
-HRESULT WindhawkTAP::GetSite(REFIID riid, void **ppvSite) noexcept {
-    return site.as(riid, ppvSite);
-}
+HRESULT WindhawkTAP::GetSite(REFIID riid, void **ppvSite) noexcept { return site.as(riid, ppvSite); }
 
 #pragma endregion  // tap_cpp
 //////////////////////////////////////////////////////////////////////////////
@@ -1045,7 +368,7 @@ struct ElementPropertyCustomizationState {
 struct ElementCustomizationStateForVisualStateGroup {
     std::unordered_map<DependencyProperty, ElementPropertyCustomizationState>
         propertyCustomizationStates;
-    winrt::event_token visualStateGroupCurrentStateChangedToken;
+    winrt::event_token VSGCurrentStateChangedToken;
 };
 
 struct ElementCustomizationState {
@@ -1085,8 +408,7 @@ void SetOrClearValue(DependencyObject elementDo, DependencyProperty property, wi
             }
         }
         elementDo.SetValue(property, value);
-    } catch (winrt::hresult_error const& ex) {
-    }
+    } catch (winrt::hresult_error const& ex) {}
 }
 
 std::wstring EscapeXmlAttribute(std::wstring_view data) {
@@ -1205,8 +527,7 @@ const PropertyOverrides& GetResolvedPropertyOverrides(const std::wstring_view ty
             }
         }
     } catch (winrt::hresult_error const& ex) {
-    } catch (std::exception const& ex) {
-    }
+    } catch (std::exception const& ex) {}
 
     *propertyOverridesMaybeUnresolved = std::move(propertyOverrides);
     return std::get<PropertyOverrides>(*propertyOverridesMaybeUnresolved);
@@ -1240,8 +561,7 @@ const PropertyValues& GetResolvedPropertyValues( const std::wstring_view type, P
             }
         }
     } catch (winrt::hresult_error const& ex) {
-    } catch (std::exception const& ex) {
-    }
+    } catch (std::exception const& ex) {}
 
     *propertyValuesMaybeUnresolved = std::move(propertyValues);
     return std::get<PropertyValues>(*propertyValuesMaybeUnresolved);
@@ -1385,7 +705,7 @@ void ApplyCustomizationsForVisualStateGroup(FrameworkElement element, VisualStat
 
     if (visualStateGroup) {
         winrt::weak_ref<FrameworkElement> elementWeakRef = element;
-        ECSFVSG->visualStateGroupCurrentStateChangedToken = visualStateGroup.CurrentStateChanged([elementWeakRef, propertyOverrides, ECSFVSG](winrt::Windows::Foundation::IInspectable const& sender, VisualStateChangedEventArgs const& e) {
+        ECSFVSG->VSGCurrentStateChangedToken = visualStateGroup.CurrentStateChanged([elementWeakRef, propertyOverrides, ECSFVSG](winrt::Windows::Foundation::IInspectable const& sender, VisualStateChangedEventArgs const& e) {
             auto element = elementWeakRef.get();
             if (!element) return;
 
@@ -1437,8 +757,8 @@ void RestoreVSG(FrameworkElement element, std::optional<winrt::weak_ref<VisualSt
     }
 
     auto visualStateGroupIter = VSGOptionalWeakPtr ? VSGOptionalWeakPtr->get() : nullptr;
-    if (visualStateGroupIter && ECSFVSG.visualStateGroupCurrentStateChangedToken) {
-        visualStateGroupIter.CurrentStateChanged(ECSFVSG.visualStateGroupCurrentStateChangedToken);
+    if (visualStateGroupIter && ECSFVSG.VSGCurrentStateChangedToken) {
+        visualStateGroupIter.CurrentStateChanged(ECSFVSG.VSGCurrentStateChangedToken);
     }
 }
 
@@ -1593,10 +913,7 @@ void AddElementCustomizationRules(std::wstring_view target, std::vector<std::wst
 void ProcessTheme(const Theme& theme) {
     for (const auto& themeTargetStyle : theme.targetStyles) {
         try {
-            AddElementCustomizationRules(
-                themeTargetStyle.target,
-                std::vector<std::wstring>{ themeTargetStyle.styles.begin(), themeTargetStyle.styles.end() }
-            );
+            AddElementCustomizationRules(themeTargetStyle.target, std::vector<std::wstring>{ themeTargetStyle.styles.begin(), themeTargetStyle.styles.end() });
         } catch (const winrt::hresult_error&) {
         } catch (const std::exception&) {}
     }
@@ -1617,9 +934,7 @@ void UninitializeSettingsAndTap() {
     for (const auto& [handle, elementCustomizationState] : g_elementsCustomizationState) {
         auto element = elementCustomizationState.element.get();
 
-        for (const auto& [vSGOptionalWeakPtrIter, stateIter] : elementCustomizationState.perVisualStateGroup) {
-            RestoreVSG(element, vSGOptionalWeakPtrIter, stateIter);
-        }
+        for (const auto& [vSGOptionalWeakPtrIter, stateIter] : elementCustomizationState.perVisualStateGroup) { RestoreVSG(element, vSGOptionalWeakPtrIter, stateIter); }
     }
 
     g_elementsCustomizationState.clear();
