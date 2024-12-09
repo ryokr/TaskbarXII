@@ -72,7 +72,7 @@ const Theme themeRyoMeow = {{
     
     ThemeTargetStyles{L"SystemTray.Stack#MainStack", { L"Grid.Column=7" }},                                         // mic icon
 
-    ThemeTargetStyles{L"Windows.UI.Xaml.Controls.TextBlock#InnerTextBlock[Text=\uE971]", { L"Text=\ue878" }},        // uE759-thoi uEC43-dot uECCB-largerdot uE712-dots uE708-moon uf090-up uf08e-down
+    ThemeTargetStyles{L"Windows.UI.Xaml.Controls.TextBlock#InnerTextBlock[Text=\uE971]", { L"Text=\uED14" }},        // uE712-dots uE878-triangle uED14-QR
 
     ThemeTargetStyles{L"Windows.UI.Xaml.Shapes.Rectangle#BackgroundStroke", { HideItem }},                          // line in main section
 }};
