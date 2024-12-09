@@ -43,8 +43,8 @@ const PCWSTR WeatherIconWidth = L"MaxWidth=26";
 const PCWSTR SearchBoxDisplayText = L"Text=✦ Meow";
 
 const PCWSTR TaskbarBackgroundTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"156.5\"/>";
-const PCWSTR TaskbarTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"-790\"/>";            // incr to right
-const PCWSTR SystemtrayTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"1134.5\"/>";
+const PCWSTR TaskbarTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"-798\"/>";            // incr to right
+const PCWSTR SystemtrayTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"1126.5\"/>";
 
 const Theme themeRyoMeow = {{
     ThemeTargetStyles{L"Taskbar.TaskbarFrame#TaskbarFrame", { L"Height=56", WidthAuto, HorizontalAlignRight, TaskbarTransform }},
