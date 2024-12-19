@@ -12,6 +12,7 @@
 // ==/WindhawkMod==
 
 #include <windows.ui.xaml.hosting.desktopwindowxamlsource.h>
+#include <winnt.h>
 #include <xamlom.h>
 #include <atomic>
 #include <vector>
@@ -30,6 +31,7 @@ const PCWSTR TaskbarSolidBG = L"Background:=<SolidColorBrush Color=\"{ThemeResou
 
 const PCWSTR HorizontalAlignRight = L"HorizontalAlignment=Right";
 const PCWSTR HorizontalAlignLeft = L"HorizontalAlignment=Left";
+
 const PCWSTR PaddingZero = L"Padding=0";
 const PCWSTR MarginZero = L"Margin=0";
 const PCWSTR WidthAuto = L"Width=Auto";
@@ -45,6 +47,9 @@ const PCWSTR SearchBoxDisplayText = L"Text=✦ Meow";
 const PCWSTR TaskbarBackgroundTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"156.5\"/>";
 const PCWSTR TaskbarTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"-798\"/>";            // incr to right
 const PCWSTR SystemtrayTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"1126.5\"/>";
+
+const PCWSTR ClockFontSize = L"FontSize=15";
+const PCWSTR ClockFontWeight = L"FontWeight=SemiBold";
 
 const Theme themeRyoMeow = {{
     ThemeTargetStyles{L"Taskbar.TaskbarFrame#TaskbarFrame", { L"Height=56", WidthAuto, HorizontalAlignRight, TaskbarTransform }},
@@ -75,6 +80,9 @@ const Theme themeRyoMeow = {{
     ThemeTargetStyles{L"Windows.UI.Xaml.Controls.TextBlock#InnerTextBlock[Text=\uE971]", { L"Text=\uED14" }},        // uE712-dots uE878-triangle uED14-QR
 
     ThemeTargetStyles{L"Windows.UI.Xaml.Shapes.Rectangle#BackgroundStroke", { HideItem }},                          // line in main section
+
+    ThemeTargetStyles{L"TextBlock#TimeInnerTextBlock", { HorizontalAlignLeft, L"Transform3D:=<CompositeTransform3D TranslateY=\"10\"/>", ClockFontSize }},
+    ThemeTargetStyles{L"TextBlock#DateInnerTextBlock", { HorizontalAlignRight, L"Transform3D:=<CompositeTransform3D TranslateY=\"-10\"/>", L"Margin=70,0,0,0", ClockFontSize }},
 }};
 // -------------------------------------------------------------------------------------------------------------
 // clang-format on
