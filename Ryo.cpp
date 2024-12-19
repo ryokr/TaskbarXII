@@ -44,8 +44,8 @@ const PCWSTR WeatherIconWidth = L"MaxWidth=26";
 const PCWSTR SearchBoxDisplayText = L"Text=✦ Meow";
 
 const PCWSTR TaskbarBackgroundTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"156.5\"/>";
-const PCWSTR TaskbarTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"-798\"/>";            // incr to right
-const PCWSTR SystemtrayTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"1126.5\"/>";
+const PCWSTR TaskbarTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"-802\"/>";            // incr to right
+const PCWSTR SystemtrayTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"1122.5\"/>";
 
 const PCWSTR ClockFontSize = L"FontSize=15";
 const PCWSTR ClockFontWeight = L"FontWeight=SemiBold";
@@ -80,8 +80,8 @@ const Theme themeRyoMeow = {{
 
     ThemeTargetStyles{L"Windows.UI.Xaml.Shapes.Rectangle#BackgroundStroke", { HideItem }},                          // line in main section
 
-    ThemeTargetStyles{L"TextBlock#TimeInnerTextBlock", { HorizontalAlignLeft, L"Transform3D:=<CompositeTransform3D TranslateY=\"10\"/>", ClockFontSize }},
-    ThemeTargetStyles{L"TextBlock#DateInnerTextBlock", { HorizontalAlignRight, L"Transform3D:=<CompositeTransform3D TranslateY=\"-10\"/>", L"Margin=70,0,0,0", ClockFontSize }},
+    ThemeTargetStyles{L"TextBlock#TimeInnerTextBlock", { HorizontalAlignLeft, L"Transform3D:=<CompositeTransform3D TranslateY=\"10\"/>", ClockFontSize, ClockFontWeight }},
+    ThemeTargetStyles{L"TextBlock#DateInnerTextBlock", { HorizontalAlignRight, L"Transform3D:=<CompositeTransform3D TranslateY=\"-10\"/>", L"Margin=70,0,0,0", ClockFontSize, ClockFontWeight }},
 }};
 // -------------------------------------------------------------------------------------------------------------
 // clang-format on
