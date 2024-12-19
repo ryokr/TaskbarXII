@@ -12,7 +12,6 @@
 // ==/WindhawkMod==
 
 #include <windows.ui.xaml.hosting.desktopwindowxamlsource.h>
-#include <winnt.h>
 #include <xamlom.h>
 #include <atomic>
 #include <vector>
