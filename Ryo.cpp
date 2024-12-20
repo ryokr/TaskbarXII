@@ -11,80 +11,75 @@
 // @compilerOptions -lcomctl32 -lole32 -loleaut32 -lruntimeobject -Wl,--export-all-symbols
 // ==/WindhawkMod==
 
-#include <windows.ui.xaml.hosting.desktopwindowxamlsource.h>
+#undef GetCurrentTime
+
 #include <xamlom.h>
 #include <atomic>
 #include <vector>
-#undef GetCurrentTime
 #include <winrt/Windows.UI.Xaml.h>
 
 struct ThemeTargetStyles { PCWSTR target; std::vector<PCWSTR> styles; };
 struct Theme { std::vector<ThemeTargetStyles> targetStyles; };
 
-// clang-format off
-// -------------------------------------------------------------------------------------------------------------
-
 // const PCWSTR WeatherImage = L"Background:=<ImageBrush Stretch=\"UniformToFill\" ImageSource=\"H:\\Home\\Tool\\WinMod\\TaskbarXI\\Images\\roxy0.gif\" />";
-// const PCWSTR TaskbarBG = L"Background:=<AcrylicBrush TintColor=\"{ThemeResource SystemChromeAltHighColor}\" TintOpacity=\"0.6\" FallbackColor=\"{ThemeResource SystemChromeLowColor}\" />";
-const PCWSTR TaskbarSolidBG = L"Background:=<SolidColorBrush Color=\"{ThemeResource SystemChromeAltHighColor}\" Opacity=\"0.6\" />";
+// const PCWSTR TaskbarBG = L"Background:=<AcrylicBrush TintColor=\"{ThemeResource SystemChromeAltHighColor}\" TintOpacity=\"0.6\" />";
+const PCWSTR TaskbarBG = L"Background:=<SolidColorBrush Color=\"{ThemeResource SystemChromeAltHighColor}\" Opacity=\"0.6\" />";
 
 const PCWSTR HorizontalAlignRight = L"HorizontalAlignment=Right";
 const PCWSTR HorizontalAlignLeft = L"HorizontalAlignment=Left";
 
-const PCWSTR PaddingZero = L"Padding=0";
-const PCWSTR MarginZero = L"Margin=0";
-const PCWSTR WidthAuto = L"Width=Auto";
 const PCWSTR RoundAllCorner = L"CornerRadius=4";
-const PCWSTR HideItem = L"Visibility=Collapsed";
-
 const PCWSTR NormalHeight = L"Height=48";
 
-const PCWSTR WeatherIconHeight = L"MaxHeight=26";
-const PCWSTR WeatherIconWidth = L"MaxWidth=26";
-const PCWSTR SearchBoxDisplayText = L"Text=✦ Meow";
+const PCWSTR WeatherIconHeight = L"MaxHeight=27";
+const PCWSTR WeatherIconWidth = L"MaxWidth=27";
 
-const PCWSTR TaskbarBackgroundTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"156.5\"/>";
-const PCWSTR TaskbarTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"-802\"/>";            // incr to right
-const PCWSTR SystemtrayTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"1122.5\"/>";
+const PCWSTR TaskbarBGTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"156.5\"/>";
 
-const PCWSTR ClockFontSize = L"FontSize=15";
-const PCWSTR ClockFontWeight = L"FontWeight=SemiBold";
+const PCWSTR TaskbarTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"-802\"/>";        // Right
+const PCWSTR SystemTrayTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"1122.5\"/>";   // Left
 
+const PCWSTR TimeTransform = L"Transform3D:=<CompositeTransform3D TranslateY=\"10\"/>";
+const PCWSTR DateTransform = L"Transform3D:=<CompositeTransform3D TranslateY=\"-10\"/>";
+// -------------------------------------------------------------------------------------------------------------
 const Theme themeRyoMeow = {{
-    ThemeTargetStyles{L"Taskbar.TaskbarFrame#TaskbarFrame", { L"Height=56", WidthAuto, HorizontalAlignRight, TaskbarTransform }},
-    ThemeTargetStyles{L"Taskbar.TaskbarFrame#TaskbarFrame > Grid", { NormalHeight, RoundAllCorner }},                               // right round main section
+    ThemeTargetStyles{L"Taskbar.TaskbarFrame#TaskbarFrame", { HorizontalAlignRight, TaskbarTransform, L"Width=Auto", L"Height=56" }},
+    ThemeTargetStyles{L"Taskbar.TaskbarFrame#TaskbarFrame > Grid", { NormalHeight, RoundAllCorner }}, // right round main section
 
-    ThemeTargetStyles{L"Taskbar.TaskbarBackground", { L"Opacity=0.7", NormalHeight, TaskbarBackgroundTransform }},
-    ThemeTargetStyles{L"Taskbar.TaskbarBackground > Grid", { L"Opacity=1", RoundAllCorner }},                                       // left round main section
-    ThemeTargetStyles{L"Microsoft.UI.Xaml.Controls.ItemsRepeater", { L"Margin=0,0,3,0" }},                                          // main section right margin
-    
-    ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel", { L"Margin=0,0,7,0", PaddingZero, TaskbarSolidBG, RoundAllCorner }},      // weather section
-    ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel > Grid", { L"Margin=8,0,0,0" }},                                            // weather section
-    // ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel > Grid", { HideItem }},                                                  // weather icon and text
-
-    ThemeTargetStyles{L"Border#LargeTicker1", { L"Margin=0,2,0,0" }},
-    ThemeTargetStyles{L"Border#LargeTicker1 > AdaptiveCards.Rendering.Uwp.WholeItemsPanel > Image", { WeatherIconHeight, WeatherIconWidth }},                                           // weather icon
-    ThemeTargetStyles{L"Border#LargeTicker1 > AdaptiveCards.Rendering.Uwp.WholeItemsPanel > Microsoft.UI.Xaml.Controls.AnimatedVisualPlayer", { WeatherIconHeight, WeatherIconWidth }}, // weather icon
-    ThemeTargetStyles{L"Border#LargeTicker2 > AdaptiveCards.Rendering.Uwp.WholeItemsPanel > TextBlock", { L"Margin=6,0,0,0" }},                                                         // weather text
-    // ThemeTargetStyles{L"Border#LargeTicker2 > AdaptiveCards.Rendering.Uwp.WholeItemsPanel > TextBlock", { L"Margin=0,0,6,0", HorizontalAlignRight }},                                // weather text
+    ThemeTargetStyles{L"Taskbar.TaskbarBackground", { NormalHeight, TaskbarBGTransform, L"Opacity=0.7" }},
+    ThemeTargetStyles{L"Taskbar.TaskbarBackground > Grid", { RoundAllCorner, L"Opacity=1" }}, // left round main section
+    ThemeTargetStyles{L"Microsoft.UI.Xaml.Controls.ItemsRepeater", { L"Margin=0,0,3,0" }}, // main section right margin
 
     ThemeTargetStyles{L"Taskbar.SearchBoxButton > Taskbar.TaskListButtonPanel", { L"Margin=2,0,6,0" }},
-    ThemeTargetStyles{L"Taskbar.SearchBoxButton > Taskbar.TaskListButtonPanel > TextBlock", { SearchBoxDisplayText }},              // searchbox placeholder
+    ThemeTargetStyles{L"Taskbar.SearchBoxButton > Taskbar.TaskListButtonPanel > TextBlock", { L"Text=✦ Meow" }}, // searchbox text
+
+    ThemeTargetStyles{L"Windows.UI.Xaml.Shapes.Rectangle#BackgroundStroke", { L"Visibility=Collapsed" }}, // top line in main section
+
+    // -------------------------------------------------------------------------------------------------------------
     
-    ThemeTargetStyles{L"SystemTray.SystemTrayFrame", { HorizontalAlignLeft, SystemtrayTransform }},
-    ThemeTargetStyles{L"Grid#SystemTrayFrameGrid", { L"Padding=8,3,0,3", MarginZero, TaskbarSolidBG, RoundAllCorner }},
+    ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel", { TaskbarBG, RoundAllCorner, L"Padding=0", L"Margin=0,0,7,0" }},
+    ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel > Grid", { L"Margin=8,0,0,0" }},
+
+    // ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel", { WeatherImage, RoundAllCorner, L"Padding=0", L"Margin=0,0,7,0" }},        
+    // ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel > Grid", { L"Visibility=Collapsed" }},
+
+    ThemeTargetStyles{L"Border#LargeTicker1", { L"Margin=0,2,4,0" }},
+    ThemeTargetStyles{L"Border#LargeTicker1 > AdaptiveCards.Rendering.Uwp.WholeItemsPanel > Image", { WeatherIconHeight, WeatherIconWidth }},                                           // weather icon
+    ThemeTargetStyles{L"Border#LargeTicker1 > AdaptiveCards.Rendering.Uwp.WholeItemsPanel > Microsoft.UI.Xaml.Controls.AnimatedVisualPlayer", { WeatherIconHeight, WeatherIconWidth }}, // weather icon
+
+    // -------------------------------------------------------------------------------------------------------------
     
-    ThemeTargetStyles{L"SystemTray.Stack#MainStack", { L"Grid.Column=7" }},                                         // mic icon
+    ThemeTargetStyles{L"SystemTray.SystemTrayFrame", { HorizontalAlignLeft, SystemTrayTransform }},
+    ThemeTargetStyles{L"Grid#SystemTrayFrameGrid", { TaskbarBG, RoundAllCorner, L"Padding=8,3,0,3" }},
+    
+    ThemeTargetStyles{L"SystemTray.Stack#MainStack", { L"Grid.Column=7" }}, // mic icon
 
-    ThemeTargetStyles{L"Windows.UI.Xaml.Controls.TextBlock#InnerTextBlock[Text=\uE971]", { L"Text=\uED14" }},        // uE712-dots uE878-triangle uED14-QR
+    ThemeTargetStyles{L"TextBlock#InnerTextBlock[Text=\uE971]", { L"Text=\uED14" }}, // uE712-dots uE878-triangle uED14-QR
 
-    ThemeTargetStyles{L"Windows.UI.Xaml.Shapes.Rectangle#BackgroundStroke", { HideItem }},                          // line in main section
-
-    ThemeTargetStyles{L"TextBlock#TimeInnerTextBlock", { HorizontalAlignLeft, L"Transform3D:=<CompositeTransform3D TranslateY=\"10\"/>", ClockFontSize, ClockFontWeight }},
-    ThemeTargetStyles{L"TextBlock#DateInnerTextBlock", { HorizontalAlignRight, L"Transform3D:=<CompositeTransform3D TranslateY=\"-10\"/>", L"Margin=70,0,0,0", ClockFontSize, ClockFontWeight }},
+    ThemeTargetStyles{L"TextBlock#TimeInnerTextBlock", { TimeTransform, L"FontSize=15", L"FontWeight=Bold", L"Margin=90,0,0,0" }},
+    ThemeTargetStyles{L"TextBlock#DateInnerTextBlock", { DateTransform, L"FontSize=15", L"FontWeight=SemiBold", HorizontalAlignLeft }},
 }};
 // -------------------------------------------------------------------------------------------------------------
-// clang-format on
 
 std::atomic<DWORD> g_targetThreadId = 0;
 
@@ -98,7 +93,6 @@ HMODULE GetCurrentModuleHandle() {
 }
 
 // -------------------------------------------------------------------------------------------------------------
-// clang-format off
 #pragma region winrt_hpp
 
 #include <guiddef.h>
@@ -114,8 +108,6 @@ namespace winrt {
         }
     }
 }
-
-#pragma endregion  // winrt_hpp
 // -------------------------------------------------------------------------------------------------------------
 #pragma region visualtreewatcher_hpp
 
@@ -147,9 +139,7 @@ class VisualTreeWatcher : public winrt::implements<VisualTreeWatcher, IVisualTre
 
         winrt::com_ptr<IXamlDiagnostics> m_XamlDiagnostics = nullptr;
 };
-
-#pragma endregion  // visualtreewatcher_hpp
-//////////////////////////////////////////////////////////////////////////////
+// -------------------------------------------------------------------------------------------------------------
 #pragma region visualtreewatcher_cpp
 
 #include <winrt/Windows.UI.Xaml.Hosting.h>
@@ -185,9 +175,7 @@ HRESULT VisualTreeWatcher::OnVisualTreeChange(ParentChildRelation, VisualElement
 }
 
 HRESULT VisualTreeWatcher::OnElementStateChanged(InstanceHandle, VisualElementState, LPCWSTR) noexcept { return S_OK; }
-
-#pragma endregion  // visualtreewatcher_cpp
-//////////////////////////////////////////////////////////////////////////////
+// -------------------------------------------------------------------------------------------------------------
 #pragma region tap_hpp
 
 #include <ocidl.h>
@@ -203,9 +191,7 @@ class WindhawkTAP : public winrt::implements<WindhawkTAP, IObjectWithSite, winrt
     private:
         winrt::com_ptr<IUnknown> site;
 };
-
-#pragma endregion  // tap_hpp
-//////////////////////////////////////////////////////////////////////////////
+// -------------------------------------------------------------------------------------------------------------
 #pragma region tap_cpp
 
 HRESULT WindhawkTAP::SetSite(IUnknown *pUnkSite) try {
@@ -225,34 +211,28 @@ HRESULT WindhawkTAP::SetSite(IUnknown *pUnkSite) try {
 catch (...) { return winrt::to_hresult(); }
 
 HRESULT WindhawkTAP::GetSite(REFIID riid, void **ppvSite) noexcept { return site.as(riid, ppvSite); }
-
-#pragma endregion  // tap_cpp
-//////////////////////////////////////////////////////////////////////////////
+// -------------------------------------------------------------------------------------------------------------
 #pragma region simplefactory_hpp
 
 #include <Unknwn.h>
 
 template<class T>
-struct SimpleFactory : winrt::implements<SimpleFactory<T>, IClassFactory, winrt::non_agile> {
+struct SimpleFactory : winrt::implements<SimpleFactory<T>, IClassFactory> {
     HRESULT STDMETHODCALLTYPE CreateInstance(IUnknown* pUnkOuter, REFIID riid, void** ppvObject) override try {
         if (!pUnkOuter) {
             *ppvObject = nullptr;
             return winrt::make<T>().as(riid, ppvObject);
-        } else return CLASS_E_NOAGGREGATION;
+        }
+        return CLASS_E_NOAGGREGATION;
     }
     catch (...) { return winrt::to_hresult(); }
 
     HRESULT STDMETHODCALLTYPE LockServer(BOOL) noexcept override { return S_OK; }
 };
-
-#pragma endregion  // simplefactory_hpp
-//////////////////////////////////////////////////////////////////////////////
+// -------------------------------------------------------------------------------------------------------------
 #pragma region module_cpp
 
 #include <combaseapi.h>
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdll-attribute-on-redeclaration"
 
 __declspec(dllexport)
 _Use_decl_annotations_ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID* ppv) try {
@@ -260,20 +240,14 @@ _Use_decl_annotations_ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LP
         *ppv = nullptr;
         return winrt::make<SimpleFactory<WindhawkTAP>>().as(riid, ppv);
     } else return CLASS_E_CLASSNOTAVAILABLE;
-} catch (...) {
-    return winrt::to_hresult();
-}
+} catch (...) { return winrt::to_hresult(); }
 
 __declspec(dllexport)
 _Use_decl_annotations_ STDAPI DllCanUnloadNow(void) {
     if (winrt::get_module_lock()) return S_FALSE;
     else return S_OK;
 }
-
-#pragma clang diagnostic pop
-
-#pragma endregion  // module_cpp
-//////////////////////////////////////////////////////////////////////////////
+// -------------------------------------------------------------------------------------------------------------
 #pragma region api_cpp
 
 using PFN_INITIALIZE_XAML_DIAGNOSTICS_EX = decltype(&InitializeXamlDiagnosticsEx);
@@ -300,11 +274,8 @@ HRESULT InjectWindhawkTAP() noexcept {
 
     return S_OK;
 }
+// -------------------------------------------------------------------------------------------------------------
 
-#pragma endregion  // api_cpp
-//////////////////////////////////////////////////////////////////////////////
-
-// clang-format on
 #include <list>
 #include <optional>
 #include <string>
@@ -333,6 +304,16 @@ using PropertyValuesUnresolved = std::vector<std::pair<std::wstring, std::wstrin
 using PropertyValues = std::vector<PropertyKeyValue>;
 using PropertyValuesMaybeUnresolved = std::variant<PropertyValuesUnresolved, PropertyValues>;
 
+struct StyleRule {
+    std::wstring name;
+    std::wstring visualState;
+    std::wstring value;
+    bool isXamlValue = false;
+};
+using PropertyOverridesUnresolved = std::vector<StyleRule>;
+using PropertyOverrides = std::unordered_map<DependencyProperty, std::unordered_map<std::wstring, winrt::Windows::Foundation::IInspectable>>;
+using PropertyOverridesMaybeUnresolved = std::variant<PropertyOverridesUnresolved, PropertyOverrides>;
+
 struct ElementMatcher {
     std::wstring type;
     std::wstring name;
@@ -340,24 +321,11 @@ struct ElementMatcher {
     int oneBasedIndex = 0;
     PropertyValuesMaybeUnresolved propertyValues;
 };
-
-struct StyleRule {
-    std::wstring name;
-    std::wstring visualState;
-    std::wstring value;
-    bool isXamlValue = false;
-};
-
-using PropertyOverridesUnresolved = std::vector<StyleRule>;
-using PropertyOverrides = std::unordered_map<DependencyProperty, std::unordered_map<std::wstring, winrt::Windows::Foundation::IInspectable>>;
-using PropertyOverridesMaybeUnresolved = std::variant<PropertyOverridesUnresolved, PropertyOverrides>;
-
 struct ElementCustomizationRules {
     ElementMatcher elementMatcher;
     std::vector<ElementMatcher> parentElementMatchers;
     PropertyOverridesMaybeUnresolved propertyOverrides;
 };
-
 std::vector<ElementCustomizationRules> g_elementsCustomizationRules;
 
 struct ElementPropertyCustomizationState {
@@ -365,29 +333,24 @@ struct ElementPropertyCustomizationState {
     std::optional<winrt::Windows::Foundation::IInspectable> customValue;
     int64_t propertyChangedToken = 0;
 };
-
 struct ElementCustomizationStateForVisualStateGroup {
-    std::unordered_map<DependencyProperty, ElementPropertyCustomizationState>
-        propertyCustomizationStates;
+    std::unordered_map<DependencyProperty, ElementPropertyCustomizationState> propertyCustomizationStates;
     winrt::event_token VSGCurrentStateChangedToken;
 };
-
 struct ElementCustomizationState {
     winrt::weak_ref<FrameworkElement> element;
     std::list<std::pair<std::optional<winrt::weak_ref<VisualStateGroup>>, ElementCustomizationStateForVisualStateGroup>> perVisualStateGroup;
 };
-
 std::unordered_map<InstanceHandle, ElementCustomizationState> g_elementsCustomizationState;
-
-bool g_elementPropertyModifying;
 
 struct BackgroundFillDelayedApplyData {
     UINT_PTR timer = 0;
     winrt::weak_ref<winrt::Windows::UI::Xaml::FrameworkElement> element;
     std::wstring fallbackClassName;
 };
-
 std::unordered_map<InstanceHandle, BackgroundFillDelayedApplyData> g_backgroundFillDelayedApplyData;
+
+bool g_elementPropertyModifying;
 
 winrt::Windows::Foundation::IInspectable ReadLocalValueWithWorkaround( DependencyObject elementDo, DependencyProperty property) {
     const auto value = elementDo.ReadLocalValue(property);
