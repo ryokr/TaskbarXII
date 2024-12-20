@@ -36,8 +36,8 @@ const PCWSTR WeatherIconWidth = L"MaxWidth=27";
 
 const PCWSTR TaskbarBGTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"156.5\"/>";
 
-const PCWSTR TaskbarTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"-802\"/>";        // Right
-const PCWSTR SystemTrayTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"1122.5\"/>";   // Left
+const PCWSTR TaskbarTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"-818\"/>";        // Right
+const PCWSTR SystemTrayTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"1106.5\"/>";   // Left  
 
 const PCWSTR TimeTransform = L"Transform3D:=<CompositeTransform3D TranslateY=\"10\"/>";
 const PCWSTR DateTransform = L"Transform3D:=<CompositeTransform3D TranslateY=\"-10\"/>";
@@ -234,19 +234,26 @@ struct SimpleFactory : winrt::implements<SimpleFactory<T>, IClassFactory> {
 
 #include <combaseapi.h>
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdll-attribute-on-redeclaration"
+
 __declspec(dllexport)
 _Use_decl_annotations_ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID* ppv) try {
     if (rclsid == CLSID_WindhawkTAP) {
         *ppv = nullptr;
         return winrt::make<SimpleFactory<WindhawkTAP>>().as(riid, ppv);
     } else return CLASS_E_CLASSNOTAVAILABLE;
-} catch (...) { return winrt::to_hresult(); }
+} catch (...) {
+    return winrt::to_hresult();
+}
 
 __declspec(dllexport)
 _Use_decl_annotations_ STDAPI DllCanUnloadNow(void) {
     if (winrt::get_module_lock()) return S_FALSE;
     else return S_OK;
 }
+
+#pragma clang diagnostic pop
 // -------------------------------------------------------------------------------------------------------------
 #pragma region api_cpp
 
