@@ -78,6 +78,8 @@ const Theme themeRyoMeow = {{
 
     ThemeTargetStyles{L"TextBlock#TimeInnerTextBlock", { TimeTransform, L"FontSize=15", L"FontWeight=Bold", L"Margin=90,0,0,0" }},
     ThemeTargetStyles{L"TextBlock#DateInnerTextBlock", { DateTransform, L"FontSize=15", L"FontWeight=SemiBold", HorizontalAlignLeft }},
+
+    ThemeTargetStyles{L"SystemTray.OmniButton#NotificationCenterButton > Grid > ContentPresenter > ItemsPresenter > StackPanel > ContentPresenter > SystemTray.IconView > Grid > Grid > SystemTray.TextIconContent", { HideItem }}, // notification icon
 }};
 // -------------------------------------------------------------------------------------------------------------
 
