@@ -36,8 +36,8 @@ const PCWSTR WeatherIconWidth = L"MaxWidth=27";
 
 const PCWSTR TaskbarBGTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"156.5\"/>";
 
-const PCWSTR TaskbarTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"-818\"/>";        // Right
-const PCWSTR SystemTrayTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"1106.5\"/>";   // Left  
+const PCWSTR TaskbarTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"-820\"/>";        // Right
+const PCWSTR SystemTrayTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"1104.5\"/>";   // Left  
 
 const PCWSTR TimeTransform = L"Transform3D:=<CompositeTransform3D TranslateY=\"10\"/>";
 const PCWSTR DateTransform = L"Transform3D:=<CompositeTransform3D TranslateY=\"-10\"/>";
@@ -76,10 +76,10 @@ const Theme themeRyoMeow = {{
 
     ThemeTargetStyles{L"TextBlock#InnerTextBlock[Text=\uE971]", { L"Text=\uED14" }}, // uE712-dots uE878-triangle uED14-QR
 
-    ThemeTargetStyles{L"TextBlock#TimeInnerTextBlock", { TimeTransform, L"FontSize=15", L"FontWeight=Bold", L"Margin=90,0,0,0" }},
+    ThemeTargetStyles{L"TextBlock#TimeInnerTextBlock", { TimeTransform, L"FontSize=15", L"FontWeight=Bold", L"Margin=94,0,0,0" }},
     ThemeTargetStyles{L"TextBlock#DateInnerTextBlock", { DateTransform, L"FontSize=15", L"FontWeight=SemiBold", HorizontalAlignLeft }},
 
-    ThemeTargetStyles{L"SystemTray.OmniButton#NotificationCenterButton > Grid > ContentPresenter > ItemsPresenter > StackPanel > ContentPresenter > SystemTray.IconView > Grid > Grid > SystemTray.TextIconContent", { HideItem }}, // notification icon
+    ThemeTargetStyles{L"SystemTray.OmniButton#NotificationCenterButton > Grid > ContentPresenter > ItemsPresenter > StackPanel > ContentPresenter > SystemTray.IconView > Grid > Grid > SystemTray.TextIconContent", { L"Visibility=Collapsed" }}, // notification icon
 }};
 // -------------------------------------------------------------------------------------------------------------
 
