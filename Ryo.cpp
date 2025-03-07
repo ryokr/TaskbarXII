@@ -46,9 +46,9 @@ const Theme themeRyoMeow = {{
     ThemeTargetStyles{L"Taskbar.TaskbarFrame#TaskbarFrame", { HorizontalAlignRight, TaskbarTransform, L"Width=Auto", L"Height=56" }},
     ThemeTargetStyles{L"Taskbar.TaskbarFrame#TaskbarFrame > Grid", { NormalHeight, RoundAllCorner }}, // right round main section
 
-    ThemeTargetStyles{L"Taskbar.TaskbarBackground", { NormalHeight, TaskbarBGTransform, L"Opacity=0.7" }},
+    ThemeTargetStyles{L"Taskbar.TaskbarBackground#BackgroundControl", { NormalHeight, TaskbarBGTransform, L"Opacity=0.7" }},
     ThemeTargetStyles{L"Taskbar.TaskbarBackground > Grid", { RoundAllCorner, L"Opacity=1" }}, // left round main section
-    ThemeTargetStyles{L"Microsoft.UI.Xaml.Controls.ItemsRepeater", { L"Margin=0,0,3,0" }}, // main section right margin
+    ThemeTargetStyles{L"Microsoft.UI.Xaml.Controls.ItemsRepeater#TaskbarFrameRepeater", { L"Margin=0,0,3,0" }}, // main section right margin
 
     ThemeTargetStyles{L"Taskbar.SearchBoxButton > Taskbar.TaskListButtonPanel", { L"Margin=2,0,6,0" }},
     ThemeTargetStyles{L"Taskbar.SearchBoxButton > Taskbar.TaskListButtonPanel > TextBlock", { L"Text=✦ Meow" }}, // searchbox text
@@ -79,8 +79,6 @@ const Theme themeRyoMeow = {{
 
     ThemeTargetStyles{L"TextBlock#TimeInnerTextBlock", { TimeTransform, L"FontSize=15", L"FontWeight=Bold", L"Margin=94,0,0,0" }},
     ThemeTargetStyles{L"TextBlock#DateInnerTextBlock", { DateTransform, L"FontSize=15", L"FontWeight=SemiBold", HorizontalAlignLeft }},
-
-    ThemeTargetStyles{L"SystemTray.OmniButton#NotificationCenterButton > Grid > ContentPresenter > ItemsPresenter > StackPanel > ContentPresenter > SystemTray.IconView > Grid > Grid > SystemTray.TextIconContent", { L"Visibility=Collapsed" }}, // notification icon
 }};
 // -------------------------------------------------------------------------------------------------------------
 
