@@ -73,6 +73,7 @@ const Theme themeRyoMeow = {{
     ThemeTargetStyles{L"Grid#SystemTrayFrameGrid", { TaskbarBG, RoundAllCorner, L"Padding=8,3,0,3" }},
     
     ThemeTargetStyles{L"SystemTray.Stack#MainStack", { L"Grid.Column=7" }}, // mic icon
+    ThemeTargetStyles{L"SystemTray.Stack#ShowDesktopStack", { L"Margin=28,0,0,0" }}, // hide window
 
     ThemeTargetStyles{L"TextBlock#InnerTextBlock[Text=\uE971]", { L"Text=\uED14" }}, // uE712-dots uE878-triangle uED14-QR
 
