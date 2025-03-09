@@ -71,9 +71,19 @@ const Theme themeRyoMeow = {{
     
     ThemeTargetStyles{L"SystemTray.SystemTrayFrame", { HorizontalAlignLeft, SystemTrayTransform }},
     ThemeTargetStyles{L"Grid#SystemTrayFrameGrid", { TaskbarBG, RoundAllCorner, L"Padding=8,3,0,3" }},
+
+    // -------------------------------------------------------------------------------------------------------------
     
-    ThemeTargetStyles{L"SystemTray.Stack#MainStack", { L"Grid.Column=7" }}, // mic icon
-    ThemeTargetStyles{L"SystemTray.Stack#ShowDesktopStack", { L"Margin=28,0,0,0" }}, // hide window
+    // ThemeTargetStyles{L"SystemTray.Stack#NotifyIconStack", { L"Grid.Column=0" }}, // systemtray / order 0
+    // ThemeTargetStyles{L"SystemTray.NotificationAreaIcons#NotificationAreaIcons", { L"Grid.Column=1" }}, // restart icon / order 1
+    // ThemeTargetStyles{L"SystemTray.Stack#NonActivatableStack", { L"Grid.Column=3" }}, // mic icon / order 3
+    ThemeTargetStyles{L"SystemTray.Stack#SecondaryClockStack", { L"Grid.Column=8" }}, // mic icon / order 4
+    ThemeTargetStyles{L"SystemTray.OmniButton#ControlCenterButton", { L"Grid.Column=4" }}, // mic icon / order 5
+    ThemeTargetStyles{L"SystemTray.OmniButton#NotificationCenterButton", { L"Grid.Column=5" }}, // mic icon / order 6
+    ThemeTargetStyles{L"SystemTray.Stack#MainStack", { L"Grid.Column=6" }}, // mic icon / order 2
+    ThemeTargetStyles{L"SystemTray.Stack#ShowDesktopStack", { L"Grid.Column=7"  }}, // hide window / order 7
+
+    // -------------------------------------------------------------------------------------------------------------
 
     ThemeTargetStyles{L"TextBlock#InnerTextBlock[Text=\uE971]", { L"Text=\uED14" }}, // uE712-dots uE878-triangle uED14-QR
 
