@@ -1,7 +1,7 @@
 // ==WindhawkMod==
 // @id              taskbar-12
 // @name            Taskbar XII
-// @description     ✦ Ultimate Window Taskbar
+// @description     ✦ Windows 12-inspired redesign
 // @version         4.0.0
 // @author          ryokr
 // @github          https://github.com/ryokr
@@ -10,6 +10,15 @@
 // @architecture    x86-64
 // @compilerOptions -lcomctl32 -lole32 -loleaut32 -lruntimeobject -Wl,--export-all-symbols
 // ==/WindhawkMod==
+
+// ==WindhawkModReadme==
+/*
+✦ Set display scale to 100% for optimal visuals.  
+✦ Enhance experience with the Start11 app.
+
+![demonstration](https://raw.githubusercontent.com/ryokr/TaskbarXII/main/Assets/preview.png)
+*/
+// ==/WindhawkModReadme==
 
 #undef GetCurrentTime
 
