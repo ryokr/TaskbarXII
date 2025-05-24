@@ -1,5 +1,5 @@
 // ==WindhawkMod==
-// @id              taskbar-12
+// @id              taskbar-xii
 // @name            Taskbar XII
 // @description     ✦ Windows 12-inspired redesign
 // @version         4.0.0
@@ -30,7 +30,7 @@
 struct ThemeTargetStyles { PCWSTR target; std::vector<PCWSTR> styles; };
 struct Theme { std::vector<ThemeTargetStyles> targetStyles; };
 
-// const PCWSTR WeatherImage = L"Background:=<ImageBrush Stretch=\"UniformToFill\" ImageSource=\"H:\\Home\\Tool\\WinMod\\TaskbarXI\\Images\\roxy0.gif\" />";
+// const PCWSTR WeatherImage = L"Background:=<ImageBrush Stretch=\"UniformToFill\" ImageSource=\"Path\" />";
 // const PCWSTR TaskbarBG = L"Background:=<AcrylicBrush TintColor=\"{ThemeResource SystemChromeAltHighColor}\" TintOpacity=\"0.6\" />";
 const PCWSTR TaskbarBG = L"Background:=<SolidColorBrush Color=\"{ThemeResource SystemChromeAltHighColor}\" Opacity=\"0.6\" />";
 
@@ -51,7 +51,9 @@ const PCWSTR SystemTrayTransform = L"Transform3D:=<CompositeTransform3D Translat
 const PCWSTR TimeTransform = L"Transform3D:=<CompositeTransform3D TranslateY=\"10\"/>";
 const PCWSTR DateTransform = L"Transform3D:=<CompositeTransform3D TranslateY=\"-10\"/>";
 // -------------------------------------------------------------------------------------------------------------
-const Theme themeRyoMeow = {{
+const Theme themeTaskbarXII = {{
+    ThemeTargetStyles{L"ScrollViewer > ScrollContentPresenter > Border > Grid", { L"Background:=<AcrylicBrush TintColor=\"{ThemeResource SystemListLowColor}\" TintOpacity=\"0.1\" FallbackColor=\"{ThemeResource SystemChromeHighColor}\" />" }},
+    
     ThemeTargetStyles{L"Taskbar.TaskbarFrame#TaskbarFrame", { HorizontalAlignRight, TaskbarTransform, L"Width=Auto", L"Height=56" }},
     ThemeTargetStyles{L"Taskbar.TaskbarFrame#TaskbarFrame > Grid", { NormalHeight, RoundAllCorner }}, // right round main section
 
@@ -913,7 +915,7 @@ void ProcessTheme(const Theme& theme) {
 void InitializeSettingsAndTap() {
     DWORD kNoThreadId = 0;
     if (g_targetThreadId.compare_exchange_strong(kNoThreadId, GetCurrentThreadId())) {
-        ProcessTheme(themeRyoMeow);
+        ProcessTheme(themeTaskbarXII);
         InjectWindhawkTAP();
     }
 }
