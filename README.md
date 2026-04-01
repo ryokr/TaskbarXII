@@ -108,7 +108,7 @@ The theme styles can also be imported manually. To do that, follow these steps:
   "controlStyles[6].target": "Taskbar.SearchBoxButton > Taskbar.TaskListButtonPanel",
   "controlStyles[6].styles[0]": "Margin=2,0,6,0",
   "controlStyles[7].target": "TextBlock#SearchBoxTextBlock",
-  "controlStyles[7].styles[0]": "Text=✦ Meow",
+  "controlStyles[7].styles[0]": "Text=\u2726 Meow",
   "controlStyles[8].target": "Windows.UI.Xaml.Shapes.Rectangle#BackgroundStroke",
   "controlStyles[8].styles[0]": "Visibility=Collapsed",
   "controlStyles[9].target": "Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel",
@@ -143,18 +143,17 @@ The theme styles can also be imported manually. To do that, follow these steps:
   "controlStyles[19].styles[0]": "Grid.Column=6",
   "controlStyles[20].target": "SystemTray.Stack#ShowDesktopStack",
   "controlStyles[20].styles[0]": "Grid.Column=7",
-  "controlStyles[21].target": "TextBlock#InnerTextBlock[Text=]",
-  "controlStyles[21].styles[0]": "Text=",
+  "controlStyles[21].target": "SystemTray.DateTimeIconContent > Grid > StackPanel",
+  "controlStyles[21].styles[0]": "Orientation=Horizontal",
+  "controlStyles[21].styles[1]": "Spacing=12",
   "controlStyles[22].target": "TextBlock#TimeInnerTextBlock",
-  "controlStyles[22].styles[0]": "Transform3D:=<CompositeTransform3D TranslateY=\"10\"/>",
-  "controlStyles[22].styles[1]": "FontSize=15",
-  "controlStyles[22].styles[2]": "FontWeight=Bold",
-  "controlStyles[22].styles[3]": "Margin=94,0,0,0",
+  "controlStyles[22].styles[0]": "FontSize=15",
+  "controlStyles[22].styles[1]": "FontWeight=Bold",
   "controlStyles[23].target": "TextBlock#DateInnerTextBlock",
-  "controlStyles[23].styles[0]": "Transform3D:=<CompositeTransform3D TranslateY=\"-10\"/>",
-  "controlStyles[23].styles[1]": "FontSize=15",
-  "controlStyles[23].styles[2]": "FontWeight=SemiBold",
-  "controlStyles[23].styles[3]": "HorizontalAlignment=Left"
+  "controlStyles[23].styles[0]": "FontSize=15",
+  "controlStyles[23].styles[1]": "FontWeight=SemiBold",
+  "controlStyles[24].target": "TextBlock#InnerTextBlock[Text=\uE971]",
+  "controlStyles[24].styles[0]": "Text=\uED14"
 }
 ```
 </details>
