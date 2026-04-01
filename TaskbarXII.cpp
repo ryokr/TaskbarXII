@@ -47,9 +47,6 @@ const PCWSTR TaskbarBGTransform = L"Transform3D:=<CompositeTransform3D Translate
 
 const PCWSTR TaskbarTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"-820\"/>";        // Right
 const PCWSTR SystemTrayTransform = L"Transform3D:=<CompositeTransform3D TranslateX=\"1104.5\"/>";   // Left  
-
-const PCWSTR TimeTransform = L"Transform3D:=<CompositeTransform3D TranslateY=\"10\"/>";
-const PCWSTR DateTransform = L"Transform3D:=<CompositeTransform3D TranslateY=\"-10\"/>";
 // -------------------------------------------------------------------------------------------------------------
 const Theme themeTaskbarXII = {{
     ThemeTargetStyles{L"ScrollViewer > ScrollContentPresenter > Border > Grid", { L"Background:=<AcrylicBrush TintColor=\"{ThemeResource SystemListLowColor}\" TintOpacity=\"0.1\" FallbackColor=\"{ThemeResource SystemChromeHighColor}\" />" }},
@@ -98,10 +95,83 @@ const Theme themeTaskbarXII = {{
 
     ThemeTargetStyles{L"TextBlock#InnerTextBlock[Text=\uE971]", { L"Text=\uED14" }}, // uE712-dots uE878-triangle uED14-QR
 
-    ThemeTargetStyles{L"TextBlock#TimeInnerTextBlock", { TimeTransform, L"FontSize=15", L"FontWeight=Bold", L"Margin=94,0,0,0" }},
-    ThemeTargetStyles{L"TextBlock#DateInnerTextBlock", { DateTransform, L"FontSize=15", L"FontWeight=SemiBold", HorizontalAlignLeft }},
+    ThemeTargetStyles{L"SystemTray.DateTimeIconContent > Grid > StackPanel", { L"Orientation=Horizontal", L"Spacing=12" }},
+    ThemeTargetStyles{L"TextBlock#TimeInnerTextBlock", { L"FontSize=15", L"FontWeight=Bold" }},
+    ThemeTargetStyles{L"TextBlock#DateInnerTextBlock", { L"FontSize=15", L"FontWeight=SemiBold" }},
 }};
 // -------------------------------------------------------------------------------------------------------------
+
+
+const Theme g_themeTaskbarXII = {{
+    ThemeTargetStyles{L"ScrollViewer > ScrollContentPresenter > Border > Grid", {
+        L"Background:=<AcrylicBrush TintColor=\"{ThemeResource SystemListLowColor}\" TintOpacity=\"0.1\" FallbackColor=\"{ThemeResource SystemChromeHighColor}\" />"}},
+    ThemeTargetStyles{L"Taskbar.TaskbarFrame#TaskbarFrame", {
+        L"HorizontalAlignment=Right",
+        L"Transform3D:=<CompositeTransform3D TranslateX=\"-820\"/>",
+        L"Width=Auto",
+        L"Height=56"}},
+    ThemeTargetStyles{L"Taskbar.TaskbarFrame#TaskbarFrame > Grid", {
+        L"Height=48",
+        L"CornerRadius=4"}},
+    ThemeTargetStyles{L"Taskbar.TaskbarBackground#BackgroundControl", {
+        L"Height=48",
+        L"Transform3D:=<CompositeTransform3D TranslateX=\"156.5\"/>",
+        L"Opacity=0.7"}},
+    ThemeTargetStyles{L"Taskbar.TaskbarBackground > Grid", {
+        L"CornerRadius=4",
+        L"Opacity=1"}},
+    ThemeTargetStyles{L"Microsoft.UI.Xaml.Controls.ItemsRepeater#TaskbarFrameRepeater", {
+        L"Margin=0,0,3,0"}},
+    ThemeTargetStyles{L"Taskbar.SearchBoxButton > Taskbar.TaskListButtonPanel", {
+        L"Margin=2,0,6,0"}},
+    ThemeTargetStyles{L"TextBlock#SearchBoxTextBlock", {
+        L"Text=\u2726 Meow"}},
+    ThemeTargetStyles{L"Windows.UI.Xaml.Shapes.Rectangle#BackgroundStroke", {
+        L"Visibility=Collapsed"}},
+    ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel", {
+        L"Background:=<SolidColorBrush Color=\"{ThemeResource SystemChromeAltHighColor}\" Opacity=\"0.6\" />",
+        L"CornerRadius=4",
+        L"Padding=0",
+        L"Margin=0,0,7,0"}},
+    ThemeTargetStyles{L"Taskbar.AugmentedEntryPointButton > Taskbar.TaskListButtonPanel > Grid", {
+        L"Margin=8,0,0,0"}},
+    ThemeTargetStyles{L"Border#LargeTicker1", {
+        L"Margin=0,2,4,0"}},
+    ThemeTargetStyles{L"Border#LargeTicker1 > AdaptiveCards.Rendering.Uwp.WholeItemsPanel > Image", {
+        L"MaxHeight=27",
+        L"MaxWidth=27"}},
+    ThemeTargetStyles{L"Border#LargeTicker1 > AdaptiveCards.Rendering.Uwp.WholeItemsPanel > Microsoft.UI.Xaml.Controls.AnimatedVisualPlayer", {
+        L"MaxHeight=27",
+        L"MaxWidth=27"}},
+    ThemeTargetStyles{L"SystemTray.SystemTrayFrame", {
+        L"HorizontalAlignment=Left",
+        L"Transform3D:=<CompositeTransform3D TranslateX=\"1104.5\"/>"}},
+    ThemeTargetStyles{L"Grid#SystemTrayFrameGrid", {
+        L"Background:=<SolidColorBrush Color=\"{ThemeResource SystemChromeAltHighColor}\" Opacity=\"0.6\" />",
+        L"CornerRadius=4",
+        L"Padding=8,3,0,3"}},
+    ThemeTargetStyles{L"SystemTray.Stack#SecondaryClockStack", {
+        L"Grid.Column=8"}},
+    ThemeTargetStyles{L"SystemTray.OmniButton#ControlCenterButton", {
+        L"Grid.Column=4"}},
+    ThemeTargetStyles{L"SystemTray.OmniButton#NotificationCenterButton", {
+        L"Grid.Column=5"}},
+    ThemeTargetStyles{L"SystemTray.Stack#MainStack", {
+        L"Grid.Column=6"}},
+    ThemeTargetStyles{L"SystemTray.Stack#ShowDesktopStack", {
+        L"Grid.Column=7"}},
+    ThemeTargetStyles{L"SystemTray.DateTimeIconContent > Grid > StackPanel", {
+        L"Orientation=Horizontal",
+        L"Spacing=12"}},
+    ThemeTargetStyles{L"TextBlock#TimeInnerTextBlock", {
+        L"FontSize=15",
+        L"FontWeight=Bold"}},
+    ThemeTargetStyles{L"TextBlock#DateInnerTextBlock", {
+        L"FontSize=15",
+        L"FontWeight=SemiBold"}},
+    ThemeTargetStyles{L"TextBlock#InnerTextBlock[Text=\uE971]", {
+        L"Text=\uED14"}},
+}};
 
 std::atomic<DWORD> g_targetThreadId = 0;
 
