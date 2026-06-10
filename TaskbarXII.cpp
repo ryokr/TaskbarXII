@@ -58,7 +58,7 @@ const Theme themeTaskbarXII = {{
     ThemeTargetStyles{L"Taskbar.TaskbarBackground > Grid", { RoundAllCorner, L"Opacity=1" }}, // left round main section
     ThemeTargetStyles{L"Microsoft.UI.Xaml.Controls.ItemsRepeater#TaskbarFrameRepeater", { L"Margin=0,0,3,0" }}, // main section right margin
 
-    ThemeTargetStyles{L"TextBlock#SearchBoxTextBlock", { L"Text=✦ Meow" }}, // searchbox text
+    ThemeTargetStyles{L"TextBlock#SearchBoxTextBlock", { L"Text=✦ RYO.O" }}, // searchbox text
 
     ThemeTargetStyles{L"Windows.UI.Xaml.Shapes.Rectangle#BackgroundStroke", { L"Visibility=Collapsed" }}, // top line in main section
 
