@@ -1,7 +1,7 @@
 // ==WindhawkMod==
 // @id              taskbar-xii
 // @name            Taskbar XII
-// @description     ✦ Windows 12-inspired redesign
+// @description     ✦ Windows 12 fluent redesign
 // @version         4.0.0
 // @author          ryokr
 // @github          https://github.com/ryokr
@@ -76,8 +76,8 @@ const Theme themeTaskbarXII = {{
 
     // -------------------------------------------------------------------------------------------------------------
     
-    ThemeTargetStyles{L"SystemTray.SystemTrayFrame", { HorizontalAlignLeft, SystemTrayTransform }},
-    ThemeTargetStyles{L"Grid#SystemTrayFrameGrid", { TaskbarBG, RoundAllCorner, L"Padding=8,3,0,3" }},
+    ThemeTargetStyles{L"SystemTray.SystemTrayFrame", { HorizontalAlignLeft, SystemTrayTransform, L"VerticalAlignment=Center", }},
+    ThemeTargetStyles{L"StackPanel#SystemTrayFrameGrid", { TaskbarBG, RoundAllCorner, L"Padding=8,3,0,3" }},
 
     // -------------------------------------------------------------------------------------------------------------
     
