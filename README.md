@@ -1,4 +1,4 @@
-<img src="./Assets/preview.png" alt="Preview" width="830px">
+<img src="./Assets/preview.png" alt="Preview" width="100%">
 
 # ✦ TaskbarXII theme for Windows 11 Taskbar Styler :3
 
@@ -14,7 +14,7 @@
 
 ## Theme selection
 
-The theme is integrated into the mod and can be selected directly from the mod's
+The theme is integrated into the Window 11 Taskbar Styler and can be simply selected from the mod's
 settings:
 
 * Open the Windows 11 Taskbar Styler mod in Windhawk.
