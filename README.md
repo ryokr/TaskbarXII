@@ -97,9 +97,6 @@ controlStyles:
     styles:
       - MaxHeight=27
       - MaxWidth=27
-  - target: SearchUx.SearchUI.SearchButtonRootGrid#SearchBoxButtonRootPanel
-    styles:
-      - Margin=4,0,8,0
   - target: TextBlock#SearchBoxTextBlock
     styles:
       - Text=✦ Meow
@@ -183,9 +180,6 @@ controlStyles:
     styles:
       - MaxHeight=27
       - MaxWidth=27
-  - target: SearchUx.SearchUI.SearchButtonRootGrid#SearchBoxButtonRootPanel
-    styles:
-      - Margin=4,0,8,0
   - target: TextBlock#SearchBoxTextBlock
     styles:
       - Text=✦ Meow
