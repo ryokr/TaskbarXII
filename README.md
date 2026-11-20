@@ -4,7 +4,7 @@
 
 **Author**: [ryokr](https://github.com/ryokr)
 
-![Demonstration](screenshot.png)
+![Demonstration](Assets/screenshot.png)
 
 ## Suggested Windows settings
 
@@ -15,13 +15,13 @@
 
 By default, the widget, if enabled, is shown separately from the taskbar:
 
-![Demonstration](screenshot_dark_with_widget.png)
-![Demonstration](screenshot_light_with_widget.png)
+![Demonstration](Assets/screenshot_dark_with_widget.png)
+![Demonstration](Assets/screenshot_light_with_widget.png)
 
 To show the widget as part of the taskbar instead, set `separateWidget=0` in the
 "Style constants" section of the mod's settings:
 
-![Demonstration](screenshot_dark_no_widget.png)
+![Demonstration](Assets/screenshot_dark_no_widget.png)
 
 ## Theme selection
 
